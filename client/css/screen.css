@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #dddddd;
+  background: #333333;
+  background-image: url('../img/wallpaper.jpg');
+  background-repeat: repeat;
+  background-position: top left;
+}
+
+@font-face {
+  font-family: Droid;
+  src: url('../fnt/DroidSansMono.ttf');
+}
+
+#terminal {
+  margin: 50px auto;
+  padding: 10px;
+  width: 890px;
+  height: 590px;
+  font-size: 10px;
+  color: #fffedc;
+  background: #000000;
+  border: 1px solid #333333;
+  box-shadow: 0 0 15px #000000;
+  -moz-box-shadow: 0 0 15px #000000;
+  -webkit-box-shadow: 0 0 15px #000000;
+  opacity: 0.75;
+}
+
+  #terminal #output {
+    width: 890px;
+    height: 555px;
+  }
+
+    #terminal #output pre {
+      margin: 0;
+      padding: 0;
+      width: 890px;
+      height: 555px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      font-family: Droid, sans-serif;
+    }
+
+      #terminal #output pre span.self {
+        color: #5d5d5d;
+      }
+
+      #terminal #output pre span.bold {
+        font-weight: bold;
+      }
+
+      #terminal #output pre span.black {
+        color: #404040;
+      }
+
+      #terminal #output pre span.red {
+        color: #d08356;
+      }
+
+      #terminal #output pre span.green {
+        color: #a2a96f;
+      }
+
+      #terminal #output pre span.yellow {
+        color: #e3d96f;
+      }
+
+      #terminal #output pre span.blue {
+        color: #8a9597;
+      }
+
+      #terminal #output pre span.magenta {
+        color: #be96b3;
+      }
+
+      #terminal #output pre span.cyan {
+        color: #74dad9;
+      }
+
+      #terminal #output pre span.white {
+        color: #dddddd;
+      }
+
+  #terminal #input {
+    margin: 10px 0 0 0;
+    width: 890px;
+    height: 25px;
+  }
+
+    #terminal #input input {
+      padding: 2px 5px;
+      width: 880px;
+      height: 21px;
+      font-family: Droid, sans-serif;
+      font-size: 12px;
+      color: #dddddd;
+      background: #111111;
+      border: 0;
+      border-bottom: 1px solid #333333;
+    }
