@@ -4,7 +4,7 @@ var net  = require('net'),
     yaml = require('yaml'),
     server, mud, config
 
-config = yaml.eval(fs.readFileSync('config.yml', 'utf8'))
+config = yaml.eval(fs.readFileSync('config/config.yml', 'utf8'))
 
 server = ws.createServer()
 server.addListener('connection', function(connection) {
