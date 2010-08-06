@@ -13,6 +13,9 @@ A mud client in your browser usin' node.js & websockets.
 
 ## Installation & Usage
 
+muddy requires [node-websocket-server](http://github.com/miksago/node-websocket-server)
+& [js-yaml](http://github.com/visionmedia/js-yaml)
+
     $ npm install websocket-server
     $ npm install yaml
     $ git clone git://github.com/dannytatom/muddy.git
