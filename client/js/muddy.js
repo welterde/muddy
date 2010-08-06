@@ -55,8 +55,7 @@ var updateHistory = function(command) {
 }
 
 var initialize = function() {
-  server = new WebSocket('ws://192.168.1.100:6660/muddy')
-
+  server = new WebSocket('ws://127.0.0.1:6660/muddy') 
   server.onmessage = function(event) {
     updateTerminal(event.data)
   }
