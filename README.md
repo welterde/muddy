@@ -5,6 +5,7 @@ A mud client in your browser usin' node.js & websockets.
 ## Installation & Usage
 
     $ npm install websocket-server
+    $ npm install yaml
     $ git clone git://github.com/dannytatom/muddy.git
     $ cd muddy
     $ vim config.js
