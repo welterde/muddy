@@ -5,6 +5,7 @@ var output     = '#output pre',
 var format = function(data) {
   return data.replace(/;40/g, '')
              .replace(/�/g, '')
+             .replace(/\[0m/g,    "</span>")
              .replace(/\[0;30m/g, "</span><span class='black'>")
              .replace(/\[1;30m/g, "</span><span class='black bold'>")
              .replace(/\[0;31m/g, "</span><span class='red'>")
