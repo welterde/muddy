@@ -49,10 +49,6 @@ body {
         color: #5d5d5d;
       }
 
-      #terminal #output pre span.bold {
-        font-weight: bold;
-      }
-
       #terminal #output pre span.black {
         color: #404040;
       }
@@ -83,6 +79,30 @@ body {
 
       #terminal #output pre span.white {
         color: #dddddd;
+      }
+
+      #terminal #output pre span.bold {
+        font-weight: bold;
+      }
+
+      #terminal #output pre span.italic {
+        font-style: italic;
+      }
+
+      #terminal #output pre span.underline {
+        text-decoration: underline;
+      }
+
+      #terminal #output pre span.no-bold {
+        font-weight: normal;
+      }
+
+      #terminal #output pre span.no-italic {
+        font-style: normal;
+      }
+
+      #terminal #output pre span.no-underline {
+        text-decoration: none;
       }
 
   #terminal #input {

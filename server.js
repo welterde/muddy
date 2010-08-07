@@ -1,7 +1,8 @@
-var net  = require('net'),
-    ws   = require('websocket-server'),
-    fs   = require('fs'),
-    yaml = require('yaml')
+var sys     = require('sys')
+    net     = require('net'),
+    ws      = require('websocket-server'),
+    fs      = require('fs'),
+    yaml    = require('yaml')
 
 var server, mud
 
