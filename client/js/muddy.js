@@ -24,14 +24,12 @@ var format = function(data) {
 }
 
 var sendCommand = function(command) {
-  if (command != '') {
-    server.send(command)
+  server.send(command)
 
-    $(output).append("<span class='self'>" + command + "</span>\n")
+  $(output).append("<span class='self'>> " + command + "</span>\n")
   
-    lockScroll()
-    updateHistory(command)
-  }
+  lockScroll()
+  updateHistory(command)
 }
 
 var updateTerminal = function(data) {

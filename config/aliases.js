@@ -1,3 +1,4 @@
 {
-  this['status'] = ['hp', 'look']
+  this['where']   = ['look scroll of welcoming'],
+  this['go home'] = ['invoke shining blue homing stone']
 }
