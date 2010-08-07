@@ -1,10 +1,12 @@
 var net  = require('net'),
     ws   = require('websocket-server'),
     fs   = require('fs'),
-    yaml = require('yaml'),
-    server, mud, config
+    yaml = require('yaml')
 
-config = yaml.eval(fs.readFileSync('config/config.yml', 'utf8'))
+var server, mud
+
+var config   = yaml.eval(fs.readFileSync('config/config.yml', 'utf8')),
+    aliases  = require('./config/aliases')
 
 server = ws.createServer()
 server.addListener('connection', function(connection) {
@@ -16,7 +18,15 @@ server.addListener('connection', function(connection) {
   })
 
   connection.addListener('message', function(message) {
-    mud.write(message + '\n')
+    var alias = aliases[message]
+    
+    if (alias) {
+      alias.forEach(function(command) {
+        mud.write(command + '\n')
+      })
+    } else {
+      mud.write(message + '\n')
+    }
   })
 })
 

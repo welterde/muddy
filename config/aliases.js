@@ -1,0 +1,3 @@
+{
+  this['status'] = ['hp', 'look']
+}
