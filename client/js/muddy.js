@@ -2,9 +2,11 @@ var output     = '#output pre',
     input      = '#input input',
     cmdHistory = [], server
 
+// This shit is a *massive* murder,
+// needs a fixin'
 var format = function(data) {
-  return data.replace(/;40/g, '')
-             .replace(/�/g, '')
+  return data.replace(/;40/g,     '')
+             .replace(/�/g,       '')
              .replace(/\[0m/g,    "</span>")
              .replace(/\[0;30m/g, "<span class='black'>")
              .replace(/\[1;30m/g, "<span class='black bold'>")
@@ -22,12 +24,12 @@ var format = function(data) {
              .replace(/\[1;36m/g, "<span class='cyan bold'>")
              .replace(/\[0;37m/g, "<span class='white'>")
              .replace(/\[1;37m/g, "<span class='white bold'>")
-             .replace(/\[1m/g, "<span class='bold'>")
-             .replace(/\[3m/g, "<span class='italic'>")
-             .replace(/\[4m/g, "<span class='underline'>")
-             .replace(/\[22m/g, "<span class='no-bold'>")
-             .replace(/\[23m/g, "<span class='no-italic'>")
-             .replace(/\[24m/g, "<span class='no-underline'>")
+             .replace(/\[1m/g,    "<span class='bold'>")
+             .replace(/\[3m/g,    "<span class='italic'>")
+             .replace(/\[4m/g,    "<span class='underline'>")
+             .replace(/\[22m/g,   "<span class='no-bold'>")
+             .replace(/\[23m/g,   "<span class='no-italic'>")
+             .replace(/\[24m/g,   "<span class='no-underline'>")
 }
 
 var sendCommand = function(command) {
