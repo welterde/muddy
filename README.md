@@ -8,11 +8,10 @@ so if you notice anything wrong in a different MUD let me know via
 
 ## Features
 
-- ✓ Basic Communication w/ MUD server
 - ✗ Uses ASCII encoding as explained [here](http://cryosphere.net/mud-protocol.html)
 - ✗ Uses the MCCP as defined [here](http://mccp.smaugmuds.org/)
 - ✗ Command history
-- ✗ Aliases
+- ✓ Aliases
 - ✗ Triggers
 
 ## Installation & Usage
