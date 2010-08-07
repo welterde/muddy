@@ -16,7 +16,7 @@ body {
 }
 
 #terminal {
-  margin: 50px auto;
+  margin: 50px auto 25px auto;
   padding: 10px;
   width: 890px;
   height: 590px;
