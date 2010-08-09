@@ -67,6 +67,8 @@ var initialize = function() {
     updateTerminal(event.data)
   }
 
+  $(input).focus()
+
   $('form').submit(function() {
     sendCommand($(input).val())
     $(input).val('')
