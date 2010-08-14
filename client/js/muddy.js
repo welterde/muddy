@@ -1,6 +1,7 @@
 var output     = '#output pre',
     input      = '#input input',
-    cmdHistory = [], server
+    cmdHistory = [], curHistory = 0,
+    server
 
 // This shit is a *massive* murder,
 // needs a fixin'
@@ -47,18 +48,17 @@ var updateTerminal = function(data) {
   lockScroll()
 }
 
+var updateHistory = function(command) {
+  if (command != '' && command != cmdHistory[cmdHistory.length - 1]) {
+    cmdHistory.push(command)
+    curHistory = cmdHistory.length - 1
+  }
+}
+
 var lockScroll = function() {
   $(output).attr({
     scrollTop: $(output).attr('scrollHeight')
   })
-}
-
-var updateHistory = function(command) {
-  if (cmdHistory.length == 25) {
-    cmdHistory.pop(0)
-  }
-
-  cmdHistory.push(command)
 }
 
 var initialize = function() {
@@ -74,6 +74,22 @@ var initialize = function() {
     $(input).val('')
 
     return false;
+  })
+
+  $(document).keydown(function(event) {
+    if (event.which == 38) {
+      if (curHistory >= 0) {
+        $(input).val(cmdHistory[curHistory])
+      
+        curHistory--
+      }
+    } else if (event.which == 40) {
+      if (curHistory <= cmdHistory.length) {
+        $(input).val(cmdHistory[curHistory])
+
+        curHistory++
+      }
+    }
   })
 }
 
