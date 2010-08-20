@@ -6,6 +6,8 @@ This has only been tested with [Primordiax](http://primordiax.com),
 so if you notice anything wrong in a different MUD let me know via
 [Issues](http://github.com/dannytatom/muddy/issues).
 
+[Need a screenshot?](http://i.imgur.com/ZqFCT.png)
+
 ## Features
 
 - ✗ Uses all ANSII color codes as listed [here](http://pueblo.sourceforge.net/doc/manual/ansi_color_codes.html)
