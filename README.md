@@ -1,4 +1,4 @@
-# muddy
+j muddy
 
 A MUD client in your browser usin' node.js & websockets.
 
@@ -12,22 +12,22 @@ so if you notice anything wrong in a different MUD let me know via
 
 - ✗ Uses all ANSII color codes as listed [here](http://pueblo.sourceforge.net/doc/manual/ansi_color_codes.html)
 - ✗ Uses the MCCP as defined [here](http://mccp.smaugmuds.org/)
-- ✓ Command history
-- ✓ Aliases
+- ✗ Command history
+- ✗ Aliases
 - ✗ Triggers
 
 ## Installation & Usage
 
-muddy requires [node-websocket-server](http://github.com/miksago/node-websocket-server)
-& [js-yaml](http://github.com/visionmedia/js-yaml)
+muddy requires [Socket.IO](https://github.com/LearnBoost/Socket.IO-node)
+& [js-yaml](https://github.com/visionmedia/js-yaml)
 
-    $ npm install websocket-server
+    $ npm install socket.io
     $ npm install yaml
     $ git clone git://github.com/dannytatom/muddy.git
     $ cd muddy
     $ vim config.js
-    $ node server.js &
-    $ chromium client/index.html
+    $ node init.js &
+    $ chromium localhost:6660
 
 ## Copyright
 
