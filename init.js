@@ -51,9 +51,8 @@ app.get('/', function(req, res) {
 app.listen(6660)
 
 socket.on('connection', function(client) {
-  var mud     = net.createConnection(config.port, config.host)
-    , alias   = new Alias(client)
-    , aliases = alias.aliases
+  var mud   = net.createConnection(config.port, config.host)
+    , alias = new Alias(client)
   
   mud.setEncoding('ascii')
   mud.addListener('data', function(data) {
@@ -67,10 +66,8 @@ socket.on('connection', function(client) {
       alias.show()
     } else if (data.match(/^;alias /i)) {
       alias.create(data)
-    } else if (alias.isAlias(data)) {
-      mud.write(aliases[data] + '\n')
     } else {
-      mud.write(data + '\n')
+      mud.write(alias.format(data))
     }
   })
 })
