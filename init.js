@@ -78,7 +78,12 @@ socket.on('connection', function(client) {
   })
 
   client.on('message', function(data) {
-    if (data.match(/^;alias /i)) {
+    if (data.match(/^;aliases/)) {
+      for (var key in aliases) {
+        client.send(key + ' -> ' + aliases[key] + '\n')
+      }
+      client.send('\n')
+    } else if (data.match(/^;alias /i)) {
       createAlias(data)
     } else if (isAlias(data)) {
       mud.write(aliases[data] + '\n')
