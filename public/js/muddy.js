@@ -1,5 +1,14 @@
 var socket
 
+var setTerminalSize = function() {
+  var wWidth  = window.innerWidth
+    , wHeight = window.innerHeight;
+
+  $('#container').css('width',  (wWidth - 20));
+  $('#container').css('height', (wHeight - 20));
+  $('#output').css('height', (wHeight - 50));
+}
+
 var sendCommand = function(command) {
   socket.send(command)
 
@@ -19,12 +28,12 @@ var lockScroll = function() {
 }
 
 var initialize = function() {
-  var wWidth  = window.innerWidth
-    , wHeight = window.innerHeight;
+  setTerminalSize();
 
-  $('#container').css('width',  (wWidth - 20));
-  $('#container').css('height', (wHeight - 20));
-  $('#output').css('height', (wHeight - 50));
+  $(window).resize(function() {
+    setTerminalSize();
+  });
+
   $('#input input').focus();
 
   $('#input input').keyup(function(event) {

@@ -108,6 +108,10 @@ body {
       color: #dddddd;
       background: #272727;
       border: 0;
-      border-top: 1px solid #333333;
-      border-bottom: 1px solid #000000;
+      border-top: 1px solid #000000;
+      border-bottom: 1px solid #333333;
     }
+
+      #container #input input:focus {
+        outline: none;
+      }
