@@ -29,6 +29,8 @@ muddy requires [Socket.IO](https://github.com/LearnBoost/Socket.IO-node)
     $ node init.js &
     $ chromium localhost:6660
 
+Use `;alias {key} {value}` within the client to set aliases.
+
 ## Copyright
 
 Copyright (c) 2010 Danny Tatom. See LICENSE for details.
