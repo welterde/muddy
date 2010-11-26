@@ -4,10 +4,11 @@ var fs      = require('fs')
   , express = require('express')
   , io      = require('socket.io')
 
-var config  = yaml.eval(fs.readFileSync('config/config.yml', 'utf8'))
-  , aliases = JSON.parse(fs.readFileSync('config/aliases.js', 'utf8'))
-  , app     = express.createServer()
-  , socket  = io.listen(app)
+var config = yaml.eval(fs.readFileSync('config/config.yml', 'utf8'))
+  , app    = express.createServer()
+  , socket = io.listen(app)
+
+var Alias = require('./lib/alias')
 
 var format = function(data) {
   data = data + '\n'
@@ -39,24 +40,6 @@ var format = function(data) {
              .replace(/\[24m/g,   "<span class='no-underline'>")
 }
 
-var isAlias = function(data) {
-  if (aliases[data]) {
-    return true
-  } else {
-    return false
-  }
-}
-
-var createAlias = function(data) {
-  var string = data.replace(';alias ', '')
-    , array  = string.match(/\{(?:[^\\}]+|\\.)*}/g)
-    , key    = array[0].replace('{', '').replace('}', '')
-    , value  = array[1].replace('{', '').replace('}', '')
-
-  aliases[key] = value
-  fs.writeFileSync('config/aliases.js', JSON.stringify(aliases), 'utf8')
-}
-
 app.configure(function() {
   app.use(express.staticProvider(__dirname + '/public'))
 })
@@ -68,24 +51,23 @@ app.get('/', function(req, res) {
 app.listen(6660)
 
 socket.on('connection', function(client) {
-  var mud = net.createConnection(config.port, config.host)
+  var mud     = net.createConnection(config.port, config.host)
+    , alias   = new Alias(client)
+    , aliases = alias.aliases
+  
   mud.setEncoding('ascii')
-
   mud.addListener('data', function(data) {
-    var data = data + '\n'
+    var data = data
     
     client.send(format(data))
   })
 
   client.on('message', function(data) {
     if (data.match(/^;aliases/)) {
-      for (var key in aliases) {
-        client.send(key + ' -> ' + aliases[key] + '\n')
-      }
-      client.send('\n')
+      alias.show()
     } else if (data.match(/^;alias /i)) {
-      createAlias(data)
-    } else if (isAlias(data)) {
+      alias.create(data)
+    } else if (alias.isAlias(data)) {
       mud.write(aliases[data] + '\n')
     } else {
       mud.write(data + '\n')
