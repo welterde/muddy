@@ -1,4 +1,4 @@
-muddy
+#muddy
 
 A MUD client in your browser usin' node.js & websockets.
 
@@ -31,9 +31,9 @@ muddy requires [Socket.IO](https://github.com/LearnBoost/Socket.IO-node)
 
 ### Aliases
 
-    ;alias add {go home} {rub stone} # Add an alias
-    ;alias ls                        # Show all aliases
-    ;alias rm {go home}              # Remove an alias
+    ;alias add {go home} {invoke stone} # Add an alias
+    ;alias ls                           # Show all aliases
+    ;alias rm {go home}                 # Remove an alias
 
 ## Copyright
 
