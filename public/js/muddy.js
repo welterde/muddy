@@ -1,5 +1,7 @@
 var socket
 
+var window_focused = true;
+
 var setTerminalSize = function() {
   var wWidth  = window.innerWidth
     , wHeight = window.innerHeight;
@@ -20,6 +22,10 @@ var sendCommand = function(command) {
 var updateTerminal = function(data) {
   $('#output pre').append(data);
 
+  if (!window_focused) {
+    document.title = 'muddy *';
+  }
+
   lockScroll();
 }
 
@@ -29,13 +35,18 @@ var lockScroll = function() {
 
 var initialize = function() {
   setTerminalSize();
+  window.onblur  = function() { window_focused = false; }
+  window.onfocus = function() { window_focused = true;  }
+ 
+  $(window).focus(function() {
+    document.title = 'muddy';
+  });
 
   $(window).resize(function() {
     setTerminalSize();
   });
 
   $('#input input').focus();
-
   $('#input input').keyup(function(event) {
     if (event.keyCode == 13) {
       var command = $('#input input').val()
