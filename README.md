@@ -6,7 +6,7 @@ This has only been tested with [Primordiax](http://primordiax.com),
 so if you notice anything wrong in a different MUD let me know via
 [Issues](http://github.com/dannytatom/muddy/issues).
 
-[Need a screenshot?](http://i.imgur.com/ZqFCT.png)
+[Need a screenshot?](http://min.us/iB7lo.png)
 
 ## Features
 
