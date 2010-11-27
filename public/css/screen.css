@@ -1,10 +1,10 @@
 body {
   margin: 0;
   padding: 0;
-  background: #111111;
   font-family: DroidSansMono;
-  font-size: 10px;
+  font-size: 0.75em;
   color: #dddddd;
+  background: #111111;
 }
 
 @font-face {
@@ -104,7 +104,7 @@ body {
       padding: 5px 0;
       width: 100%;
       font-family: DroidSansMono;
-      font-size: 12px;
+      font-size: 1em;
       color: #dddddd;
       background: #272727;
       border: 0;
