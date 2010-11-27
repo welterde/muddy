@@ -62,10 +62,12 @@ socket.on('connection', function(client) {
   })
 
   client.on('message', function(data) {
-    if (data.match(/^;aliases/)) {
-      alias.show()
-    } else if (data.match(/^;alias /i)) {
+    if (data.match(/^;alias add/)) {
       alias.create(data)
+    } else if (data.match(/^;alias ls/i)) {
+      alias.show()
+    } else if (data.match(/^;alias rm /i)) {
+      alias.remove(data)
     } else {
       mud.write(alias.format(data))
     }

@@ -13,7 +13,7 @@ so if you notice anything wrong in a different MUD let me know via
 - ✗ Uses all ANSII color codes as listed [here](http://pueblo.sourceforge.net/doc/manual/ansi_color_codes.html)
 - ✗ Uses the MCCP as defined [here](http://mccp.smaugmuds.org/)
 - ✗ Command history
-- ✗ Aliases
+- ✓ Aliases
 - ✗ Triggers
 
 ## Installation & Usage
@@ -29,7 +29,11 @@ muddy requires [Socket.IO](https://github.com/LearnBoost/Socket.IO-node)
     $ node init.js &
     $ chromium localhost:6660
 
-Use `;alias {key} {value}` within the client to set aliases.
+### Aliases
+
+    ;alias add {go home} {rub stone} # Add an alias
+    ;alias ls                        # Show all aliases
+    ;alias rm {go home}              # Remove an alias
 
 ## Copyright
 
