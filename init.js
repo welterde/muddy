@@ -8,7 +8,8 @@ var config = yaml.eval(fs.readFileSync('config/config.yml', 'utf8'))
   , app    = express.createServer()
   , socket = io.listen(app)
 
-var Alias = require('./lib/alias')
+var Alias   = require('./lib/alias')
+  , Trigger = require('./lib/trigger')
 
 app.configure(function() {
   app.use(express.staticProvider(__dirname + '/public'))
@@ -21,23 +22,28 @@ app.get('/', function(req, res) {
 app.listen(6660)
 
 socket.on('connection', function(client) {
-  var mud   = net.createConnection(config.port, config.host)
-    , alias = new Alias(client)
+  var mud     = net.createConnection(config.port, config.host)
+    , alias   = new Alias(client)
+    , trigger = new Trigger(mud, client)
   
   mud.setEncoding('ascii')
   mud.addListener('data', function(data) {
-    var data = data
-    
-    client.send(data)
+    trigger.scan(data)
   })
 
   client.on('message', function(data) {
-    if (data.match(/^;alias add/)) {
+    if (data.match(/^;alias add/i)) {
       alias.create(data)
     } else if (data.match(/^;alias ls/i)) {
       alias.show()
-    } else if (data.match(/^;alias rm /i)) {
+    } else if (data.match(/^;alias rm/i)) {
       alias.remove(data)
+    } else if (data.match(/^;trigger add/i)) {
+      trigger.create(data)
+    } else if (data.match(/^;trigger ls/i)) {
+      trigger.show()
+    } else if (data.match(/^;trigger rm/i)) {
+      trigger.remove(data)
     } else {
       mud.write(alias.format(data))
     }

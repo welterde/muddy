@@ -29,66 +29,70 @@ body {
     #container #output pre {
       margin: 0;
       padding: 0;
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.75);
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.90);
     }
 
-       #output pre span.self {
+      #container #output pre span.self {
         color: #5d5d5d;
       }
 
-       #output pre span.black {
-        color: #404040;
+      #container #output pre span.black {
+        color: #4a4a4a;
       }
 
-       #output pre span.red {
+      #container #output pre span.black-bg {
+        background: #000000;
+      }
+
+      #container #output pre span.white {
+        color: #ffffff;
+      }
+      
+      #container #output pre span.red {
         color: #d08356;
       }
 
-       #output pre span.green {
+      #container #output pre span.green {
         color: #a2a96f;
       }
 
-       #output pre span.yellow {
+      #container #output pre span.yellow {
         color: #e3d96f;
       }
 
-       #output pre span.blue {
+      #container #output pre span.blue {
         color: #8a9597;
       }
 
-       #output pre span.magenta {
+      #container #output pre span.magenta {
         color: #be96b3;
       }
 
-       #output pre span.cyan {
+      #container #output pre span.cyan {
         color: #74dad9;
       }
 
-       #output pre span.white {
-        color: #dddddd;
-      }
-
-       #output pre span.bold {
+      #container #output pre span.bold {
         font-weight: bold;
       }
 
-       #output pre span.italic {
+      #container #output pre span.italic {
         font-style: italic;
       }
 
-       #output pre span.underline {
+      #container #output pre span.underline {
         text-decoration: underline;
       }
 
-       #output pre span.no-bold {
+      #container #output pre span.no-bold {
         font-weight: normal;
       }
 
-       #output pre span.no-italic {
+      #container #output pre span.no-italic {
         font-style: normal;
       }
 
-       #output pre span.no-underline {
+      #container #output pre span.no-underline {
         text-decoration: none;
       }
 

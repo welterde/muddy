@@ -4,10 +4,7 @@ var window_focused = true
   , socket
 
 var format = function(data) {
-  data = data + '\n'
-
-  return data.replace(/;40/g,     '')
-             .replace(/�/g,       '\n')
+  return data.replace(/��/g,      '\n')
              .replace(/\[0m/g,    "</span>")
              .replace(/\[0;30m/g, "<span class='black'>")
              .replace(/\[1;30m/g, "<span class='black bold'>")
@@ -24,7 +21,8 @@ var format = function(data) {
              .replace(/\[0;36m/g, "<span class='cyan'>")
              .replace(/\[1;36m/g, "<span class='cyan bold'>")
              .replace(/\[0;37m/g, "<span class='white'>")
-             .replace(/\[1;37m/g, "<span class='white bold'>")
+             .replace(/\[0;37;40m/g, "<span class='black-bg white'>")
+             .replace(/\[1;37;40m/g, "<span class='black-bg white bold'>")
              .replace(/\[1m/g,    "<span class='bold'>")
              .replace(/\[3m/g,    "<span class='italic'>")
              .replace(/\[4m/g,    "<span class='underline'>")
@@ -56,7 +54,11 @@ var sendCommand = function(command) {
 }
 
 var updateTerminal = function(data) {
-  $('#output pre').append(format(data))
+  if (data.type == 'trigger') {
+    $('#output pre').append("<span class='self'>> " + data.data + "</span>\n")
+  } else {
+    $('#output pre').append(format(data))
+  }
 
   if (!window_focused) {
     document.title = 'muddy *'

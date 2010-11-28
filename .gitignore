@@ -1,2 +1,3 @@
 *.swp
 config/aliases.js
+config/triggers.js

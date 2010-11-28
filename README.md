@@ -10,11 +10,11 @@ so if you notice anything wrong in a different MUD let me know via
 
 ## Features
 
-- ✗ Uses all ANSII color codes as listed [here](http://pueblo.sourceforge.net/doc/manual/ansi_color_codes.html)
+- ✗ Uses all ANSI color codes as listed [here](http://pueblo.sourceforge.net/doc/manual/ansi_color_codes.html)
 - ✗ Uses the MCCP as defined [here](http://mccp.smaugmuds.org/)
 - ✓ Command history
 - ✓ Aliases
-- ✗ Triggers
+- ✓ Triggers
 
 ## Installation & Usage
 
