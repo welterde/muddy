@@ -10,18 +10,20 @@ so if you notice anything wrong in a different MUD let me know via
 
 ## Features
 
-- ✓ Command history
-- ✓ Aliases
-- ✓ Triggers
+- Command history
+- Aliases
+- Triggers
 
 ## TODO
 
 - Speed it up
-  - (I think the shitty triggers slow it down)
+  - I think the shitty triggers slow it down
 - Cleanup the format function
 - Triggers should support regex
 
 ## Installation & Usage
+
+### Installation
 
 muddy requires [Socket.IO](https://github.com/LearnBoost/Socket.IO-node)
 & [js-yaml](https://github.com/visionmedia/js-yaml)
