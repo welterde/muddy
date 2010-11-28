@@ -10,11 +10,13 @@ so if you notice anything wrong in a different MUD let me know via
 
 ## Features
 
-- ✗ Uses all ANSI color codes as listed [here](http://pueblo.sourceforge.net/doc/manual/ansi_color_codes.html)
-- ✗ Uses the MCCP as defined [here](http://mccp.smaugmuds.org/)
 - ✓ Command history
 - ✓ Aliases
 - ✓ Triggers
+
+## TODO
+
+- Cleanup the format function
 
 ## Installation & Usage
 
@@ -34,6 +36,12 @@ muddy requires [Socket.IO](https://github.com/LearnBoost/Socket.IO-node)
     ;alias add {go home} {invoke stone} # Add an alias
     ;alias ls                           # Show all aliases
     ;alias rm {go home}                 # Remove an alias
+
+### Triggers
+
+    ;trigger add {Your Selection:} {1} # Add a trigger
+    ;trigger ls                        # Show all triggers
+    ;trigger rm {Your Selection:}      # Remove a trigger
 
 ## Copyright
 
