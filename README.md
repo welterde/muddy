@@ -16,7 +16,10 @@ so if you notice anything wrong in a different MUD let me know via
 
 ## TODO
 
+- Speed it up
+  - (I think the shitty triggers slow it down)
 - Cleanup the format function
+- Triggers should support regex
 
 ## Installation & Usage
 
