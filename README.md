@@ -33,8 +33,7 @@ muddy requires [Socket.IO](https://github.com/LearnBoost/Socket.IO-node)
     $ git clone git://github.com/dannytatom/muddy.git
     $ cd muddy
     $ vim config.js
-    $ node init.js &
-    $ chromium localhost:6660
+    $ node init.js
 
 ### Aliases
 
