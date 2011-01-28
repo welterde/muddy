@@ -104,7 +104,7 @@ var initialize = function() {
     }
   })
 
-  socket = new io.Socket('localhost')
+  socket = new io.Socket('localhost', { port: 6660 })
   socket.connect()
 
   socket.on('message', function(data) {

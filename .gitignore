@@ -1,3 +1,4 @@
 *.swp
+.DS_Store
 config/aliases.js
 config/triggers.js

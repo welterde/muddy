@@ -29,6 +29,7 @@ body {
     #container #output pre {
       margin: 0;
       padding: 0;
+      color: #dddddd;
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.90);
     }
 

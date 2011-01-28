@@ -1,4 +1,4 @@
-#muddy
+# muddy
 
 A MUD client in your browser usin' node.js & websockets.
 
