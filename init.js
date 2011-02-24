@@ -16,7 +16,7 @@ app.configure(function() {
 })
 
 app.get('/', function(req, res) {
-  res.render('index.ejs')
+  res.render('index.ejs', { layout: false })
 })
 
 app.listen(6660)
