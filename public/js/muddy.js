@@ -31,15 +31,6 @@ var format = function(data) {
              .replace(/\[24m/g,   "<span class='no-underline'>")
 }
 
-var setTerminalSize = function() {
-  var wWidth  = window.innerWidth
-    , wHeight = window.innerHeight
-
-  $('#container').css('width',  (wWidth - 20))
-  $('#container').css('height', (wHeight - 20))
-  $('#output').css('height', (wHeight - 50))
-}
-
 var sendCommand = function(command) {
   socket.send(command)
 
@@ -72,7 +63,6 @@ var lockScroll = function() {
 }
 
 var initialize = function() {
-  setTerminalSize()
   window.onblur  = function() { window_focused = false }
   window.onfocus = function() { window_focused = true  }
  
@@ -80,26 +70,22 @@ var initialize = function() {
     document.title = 'muddy'
   })
 
-  $(window).resize(function() {
-    setTerminalSize()
-  })
-
-  $('#input input').focus()
-  $('#input input').keyup(function(event) {
+  $('input').focus()
+  $('input').keyup(function(event) {
     if (event.keyCode == 13) {
-      var command = $('#input input').val()
+      var command = $('input').val()
 
       sendCommand(command)
-      $('#input input').val('')
+      $('input').val('')
     } else if (event.keyCode == 38) {
       if (curHistory >= 0) {
-        $('#input input').val(cmdHistory[curHistory])
+        $('input').val(cmdHistory[curHistory])
         curHistory -= 1
       }
     } else if (event.keyCode == 40) {
       if (curHistory <= (cmdHistory.length - 1)) {
         curHistory += 1
-        $('#input input').val(cmdHistory[curHistory])
+        $('input').val(cmdHistory[curHistory])
       }
     }
   })
