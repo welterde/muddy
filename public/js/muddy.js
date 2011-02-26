@@ -1,6 +1,4 @@
 var window_focused = true
-  , cmdHistory = []
-  , curHistory
   , socket
 
 var format = function(data) {
@@ -35,11 +33,6 @@ var sendCommand = function(command) {
   socket.send(command)
 
   $('#output pre').append("<span class='self'>> " + command + "</span>\n")
-
-  if (command != '') {
-    cmdHistory.push(command)
-    curHistory = (cmdHistory.length - 1)
-  }
 
   lockScroll()
 }
@@ -77,16 +70,6 @@ var initialize = function() {
 
       sendCommand(command)
       $('input').val('')
-    } else if (event.keyCode == 38) {
-      if (curHistory >= 0) {
-        $('input').val(cmdHistory[curHistory])
-        curHistory -= 1
-      }
-    } else if (event.keyCode == 40) {
-      if (curHistory <= (cmdHistory.length - 1)) {
-        curHistory += 1
-        $('input').val(cmdHistory[curHistory])
-      }
     }
   })
 
