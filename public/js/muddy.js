@@ -1,4 +1,4 @@
-var window_focused = true
+var windowFocused = true
   , socket
 
 var format = function(data) {
@@ -44,7 +44,7 @@ var updateTerminal = function(data) {
     $('#output pre').append(format(data))
   }
 
-  if (!window_focused) {
+  if (!windowFocused) {
     document.title = 'muddy *'
   }
 
@@ -56,8 +56,8 @@ var lockScroll = function() {
 }
 
 var initialize = function() {
-  window.onblur  = function() { window_focused = false }
-  window.onfocus = function() { window_focused = true  }
+  window.onblur  = function() { windowFocused = false }
+  window.onfocus = function() { windowFocused = true  }
  
   $(window).focus(function() {
     document.title = 'muddy'
