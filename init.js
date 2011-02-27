@@ -27,10 +27,22 @@ app.listen(6660)
 
 socket.on('connection', function(client) {
   var mud = net.createConnection(config.port, config.host)
+      mud.setEncoding('ascii')
   
-  mud.setEncoding('ascii')
   mud.addListener('data', function(data) {
     client.send(data)
+
+    var commands = trigger.scan(data)
+
+    if (commands) {
+      for (var i = 0; i < commands.length; i++) {
+        var response = { 'cmd':     'updateSelf'
+                       , 'command': commands[i] }
+
+        client.send(response)
+        mud.write(commands[i])
+      }
+    }
   })
 
   client.on('message', function(data) {

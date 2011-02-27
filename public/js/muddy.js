@@ -35,9 +35,13 @@ var lockScroll = function() {
 var sendCommand = function(command) {
   socket.send(command)
 
-  $('#output pre').append("<span class='self'>> " + command + "</span>\n")
+  updateSelf(command)
 
   lockScroll()
+}
+
+var updateSelf = function(command) {
+  $('#output pre').append("<span class='self'>> " + command + "</span>\n")
 }
 
 var updateAliases = function(aliases) {
@@ -95,6 +99,8 @@ $(function() {
       updateAliases(data.aliases)
     } else if (data.cmd == 'updateTriggers') {
       updateTriggers(data.triggers)
+    } else if (data.cmd == 'updateSelf') {
+      updateSelf(data.command)
     } else {
       updateTerminal(data)
     }
