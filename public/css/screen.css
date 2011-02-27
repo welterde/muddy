@@ -1,10 +1,11 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: DroidSansMono;
-  font-size: 0.75em;
-  color: #dddddd;
-  background: #111111;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  color: #575757;
+  background: #272727;
+  background-image: url('/img/background.png');
 }
 
 @font-face {
@@ -12,111 +13,154 @@ body {
   src: url('/fnt/DroidSansMono.ttf');
 }
 
-#container {
-  padding: 10px;
+h1, h2, h3, h4 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
 }
 
-  #container #output {
-    overflow-x: hidden;
-    overflow-y: scroll;
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 500px;
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+#container {
+  overflow: hidden;
+  margin: 50px auto;
+  width: 960px;
+}
+
+  #container #aliases {
+    text-align: right;
   }
 
-    #container #output pre {
-      margin: 0;
-      padding: 0;
-      color: #dddddd;
-      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.90);
+  #container #aliases,
+  #container #triggers {
+    float: left;
+    padding: 10px;
+    width: 155px;
+  }
+
+    #container #aliases h2,
+    #container #triggers h2 {
+      margin: 0 0 5px 0;
+      padding: 0 0 5px 0;
+      font-size: 16px;
+      text-shadow: 1px 1px 1px #1b1b1b;
+      border-bottom: 1px solid #303030;
     }
 
-      #container #output pre span.self {
-        color: #5d5d5d;
+    #container #aliases ul li,
+    #container #triggers ul li {
+      margin: 0 0 5px 0;
+    }
+
+      #container #aliases ul li strong,
+      #container #triggers ul li strong {
+        color: #dddddd;
+        text-shadow: 1px 1px 1px #1b1b1b;
       }
 
-      #container #output pre span.black {
-        color: #4a4a4a;
-      }
-
-      #container #output pre span.black-bg {
-        background: #000000;
-      }
-
-      #container #output pre span.white {
-        color: #ffffff;
-      }
-      
-      #container #output pre span.red {
-        color: #d08356;
-      }
-
-      #container #output pre span.green {
-        color: #a2a96f;
-      }
-
-      #container #output pre span.yellow {
-        color: #e3d96f;
-      }
-
-      #container #output pre span.blue {
-        color: #8a9597;
-      }
-
-      #container #output pre span.magenta {
-        color: #be96b3;
-      }
-
-      #container #output pre span.cyan {
-        color: #74dad9;
-      }
-
-      #container #output pre span.bold {
-        font-weight: bold;
-      }
-
-      #container #output pre span.italic {
-        font-style: italic;
-      }
-
-      #container #output pre span.underline {
-        text-decoration: underline;
-      }
-
-      #container #output pre span.no-bold {
-        font-weight: normal;
-      }
-
-      #container #output pre span.no-italic {
-        font-style: normal;
-      }
-
-      #container #output pre span.no-underline {
-        text-decoration: none;
-      }
-
-  #container #input {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 30px;
+  #container #client {
+    float: left;
+    padding: 10px;
+    width: 585px;
+    background: #1b1b1b;
+    border: 1px solid #2b2b2b;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.50);
+    -moz-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.50);
+    -webkit-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.50);
   }
 
-    #container #input input {
-      padding: 5px 0;
-      width: 100%;
+    #container #client #output {
+      overflow-x: hidden;
+      overflow-y: scroll;
+      width: 580px;
+      height: 400px;
+      background: #1b1b1b;
+    }
+
+      #container #client #output pre {
+        margin: 0;
+        padding: 0;
+        color: #dddddd;
+      }
+
+        #container #client #output pre span.self {
+          color: #5d5d5d;
+        }
+
+        #container #client #output pre span.black {
+          color: #4a4a4a;
+        }
+
+        #container #client #output pre span.black-bg {
+          background: #000000;
+        }
+
+        #container #client #output pre span.white {
+          color: #ffffff;
+        }
+        
+        #container #client #output pre span.red {
+          color: #d08356;
+        }
+
+        #container #client #output pre span.green {
+          color: #a2a96f;
+        }
+
+        #container #client #output pre span.yellow {
+          color: #e3d96f;
+        }
+
+        #container #client #output pre span.blue {
+          color: #8a9597;
+        }
+
+        #container #client #output pre span.magenta {
+          color: #be96b3;
+        }
+
+        #container #client #output pre span.cyan {
+          color: #74dad9;
+        }
+
+        #container #client #output pre span.bold {
+          font-weight: bold;
+        }
+
+        #container #client #output pre span.italic {
+          font-style: italic;
+        }
+
+        #container #client #output pre span.underline {
+          text-decoration: underline;
+        }
+
+        #container #client #output pre span.no-bold {
+          font-weight: normal;
+        }
+
+        #container #client #output pre span.no-italic {
+          font-style: normal;
+        }
+
+        #container #client #output pre span.no-underline {
+          text-decoration: none;
+        }
+
+    #container #client input {
+      margin: 5px 0 0 0;
+      width: 580px;
       font-family: DroidSansMono;
-      font-size: 1em;
+      font-size: 10px;
       color: #dddddd;
-      background: #272727;
+      background: #1b1b1b;
       border: 0;
-      border-top: 1px solid #000000;
-      border-bottom: 1px solid #333333;
     }
 
-      #container #input input:focus {
+      #container #client input:focus {
         outline: none;
       }

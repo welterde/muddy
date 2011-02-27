@@ -1,7 +1,4 @@
-var window_focused = true
-  , cmdHistory = []
-  , curHistory
-  , socket
+var socket
 
 var format = function(data) {
   return data.replace(/��/g,      '\n')
@@ -31,26 +28,46 @@ var format = function(data) {
              .replace(/\[24m/g,   "<span class='no-underline'>")
 }
 
-var setTerminalSize = function() {
-  var wWidth  = window.innerWidth
-    , wHeight = window.innerHeight
-
-  $('#container').css('width',  (wWidth - 20))
-  $('#container').css('height', (wHeight - 20))
-  $('#output').css('height', (wHeight - 50))
+var lockScroll = function() {
+  $('#output').attr({ scrollTop: $('#output').attr('scrollHeight') })
 }
 
 var sendCommand = function(command) {
   socket.send(command)
 
-  $('#output pre').append("<span class='self'>> " + command + "</span>\n")
-
-  if (command != '') {
-    cmdHistory.push(command)
-    curHistory = (cmdHistory.length - 1)
-  }
+  updateSelf(command)
 
   lockScroll()
+}
+
+var updateSelf = function(command) {
+  $('#output pre').append("<span class='self'>> " + command + "</span>\n")
+}
+
+var updateAliases = function(aliases) {
+  $('#aliases ul').empty()
+
+  for (alias in aliases) {
+    var key   = alias
+      , value = aliases[alias]
+
+    $('#aliases ul').append(
+      '<li>type <strong>' + key + '</strong> to <strong>' + value + '</strong></li>'
+    )
+  }
+}
+
+var updateTriggers = function(triggers) {
+  $('#triggers ul').empty()
+
+  for (trigger in triggers) {
+    var key   = trigger
+      , value = triggers[trigger]
+
+    $('#triggers ul').append(
+      '<li>when <strong>' + key + '</strong> then <strong>' + value + '</strong></li>'
+    )
+  }
 }
 
 var updateTerminal = function(data) {
@@ -60,47 +77,17 @@ var updateTerminal = function(data) {
     $('#output pre').append(format(data))
   }
 
-  if (!window_focused) {
-    document.title = 'muddy *'
-  }
-
   lockScroll()
 }
 
-var lockScroll = function() {
-  $('#output').attr({ scrollTop: $('#output').attr('scrollHeight') })
-}
 
-var initialize = function() {
-  setTerminalSize()
-  window.onblur  = function() { window_focused = false }
-  window.onfocus = function() { window_focused = true  }
- 
-  $(window).focus(function() {
-    document.title = 'muddy'
-  })
-
-  $(window).resize(function() {
-    setTerminalSize()
-  })
-
-  $('#input input').focus()
-  $('#input input').keyup(function(event) {
+$(function() {
+  $('input').focus()
+  $('input').keyup(function(event) {
     if (event.keyCode == 13) {
-      var command = $('#input input').val()
-
-      sendCommand(command)
-      $('#input input').val('')
-    } else if (event.keyCode == 38) {
-      if (curHistory >= 0) {
-        $('#input input').val(cmdHistory[curHistory])
-        curHistory -= 1
-      }
-    } else if (event.keyCode == 40) {
-      if (curHistory <= (cmdHistory.length - 1)) {
-        curHistory += 1
-        $('#input input').val(cmdHistory[curHistory])
-      }
+      sendCommand($('input').val())
+      
+      $('input').val('')
     }
   })
 
@@ -108,10 +95,14 @@ var initialize = function() {
   socket.connect()
 
   socket.on('message', function(data) {
-    updateTerminal(data)
+    if (data.cmd == 'updateAliases') {
+      updateAliases(data.aliases)
+    } else if (data.cmd == 'updateTriggers') {
+      updateTriggers(data.triggers)
+    } else if (data.cmd == 'updateSelf') {
+      updateSelf(data.command)
+    } else {
+      updateTerminal(data)
+    }
   })
-}
-
-$(function() {
-  initialize()
 })
