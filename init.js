@@ -50,28 +50,28 @@ socket.on('connection', function(client) {
   client.on('message', function(data) {
     if (data.match(/^;alias add/i)) {
       alias.create(data, function() {
-        var response = { 'cmd': 'updateAliases'
+        var response = { 'cmd':     'updateAliases'
                        , 'aliases': alias.list() }
 
         client.send(response)
       })
     } else if (data.match(/^;alias rm/i)) {
       alias.remove(data, function() {
-        var response = { 'cmd': 'updateAliases'
+        var response = { 'cmd':     'updateAliases'
                        , 'aliases': alias.list() }
 
         client.send(response) 
       })
     } else if (data.match(/^;trigger add/i)) {
       trigger.create(data, function() {
-        var response = { 'cmd': 'updateTriggers'
+        var response = { 'cmd':      'updateTriggers'
                        , 'triggers': trigger.list() }
 
         client.send(response) 
       })
     } else if (data.match(/^;trigger rm/i)) {
       trigger.remove(data, function() {
-        var response = { 'cmd': 'updateTriggers'
+        var response = { 'cmd':      'updateTriggers'
                        , 'triggers': trigger.list() }
 
         client.send(response) 

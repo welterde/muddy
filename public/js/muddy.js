@@ -54,11 +54,6 @@ $(function() {
   socket.on('connect', function() {
     $('input').focus()
 
-   
-    $('#client').click(function() {
-      $('input').focus()
-    })
-
     $('input').keyup(function(event) {
       if (event.keyCode == 13) {
         var command = $('input').val()
