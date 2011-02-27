@@ -8,8 +8,9 @@ var config = yaml.eval(fs.readFileSync('config/config.yml', 'utf8'))
   , app    = express.createServer()
   , socket = io.listen(app)
 
-var alias   = require('./lib/alias')
-  , trigger = require('./lib/trigger')
+var alias     = require('./lib/alias')
+  , trigger   = require('./lib/trigger')
+  , formatter = require('./lib/formatter')
 
 app.configure(function() {
   app.use(express.staticProvider(__dirname + '/public'))
@@ -30,7 +31,10 @@ socket.on('connection', function(client) {
       mud.setEncoding('ascii')
   
   mud.addListener('data', function(data) {
-    client.send(data)
+    var commands  = trigger.scan(data)
+      , formatted = formatter.go(data)
+
+    client.send(formatted)
 
     var commands = trigger.scan(data)
 
