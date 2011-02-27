@@ -84,6 +84,7 @@ ul {
       #container #client #output pre {
         margin: 0;
         padding: 0;
+        font-family: DroidSansMono;
         color: #dddddd;
       }
 
@@ -153,6 +154,7 @@ ul {
 
     #container #client input {
       margin: 5px 0 0 0;
+      padding: 0;
       width: 580px;
       font-family: DroidSansMono;
       font-size: 10px;
