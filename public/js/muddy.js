@@ -1,5 +1,4 @@
-var windowFocused = true
-  , socket
+var socket
 
 var format = function(data) {
   return data.replace(/��/g,      '\n')
@@ -29,12 +28,30 @@ var format = function(data) {
              .replace(/\[24m/g,   "<span class='no-underline'>")
 }
 
+var lockScroll = function() {
+  $('#output').attr({ scrollTop: $('#output').attr('scrollHeight') })
+}
+
 var sendCommand = function(command) {
   socket.send(command)
 
   $('#output pre').append("<span class='self'>> " + command + "</span>\n")
 
   lockScroll()
+}
+
+var updateAliases = function(aliases) {
+  console.log('yay')
+  $('#aliases ul').empty()
+
+  for (alias in aliases) {
+    var key   = alias
+      , value = aliases[alias]
+
+    $('#aliases ul').append(
+      '<li>type <strong>' + key + '</strong> to <strong>' + value + '</strong></li>'
+    )
+  }
 }
 
 var updateTerminal = function(data) {
@@ -44,31 +61,16 @@ var updateTerminal = function(data) {
     $('#output pre').append(format(data))
   }
 
-  if (!windowFocused) {
-    document.title = 'muddy *'
-  }
-
   lockScroll()
 }
 
-var lockScroll = function() {
-  $('#output').attr({ scrollTop: $('#output').attr('scrollHeight') })
-}
 
-var initialize = function() {
-  window.onblur  = function() { windowFocused = false }
-  window.onfocus = function() { windowFocused = true  }
- 
-  $(window).focus(function() {
-    document.title = 'muddy'
-  })
-
+$(function() {
   $('input').focus()
   $('input').keyup(function(event) {
     if (event.keyCode == 13) {
-      var command = $('input').val()
-
-      sendCommand(command)
+      sendCommand($('input').val())
+      
       $('input').val('')
     }
   })
@@ -77,10 +79,12 @@ var initialize = function() {
   socket.connect()
 
   socket.on('message', function(data) {
-    updateTerminal(data)
-  })
-}
+    console.log(data)
 
-$(function() {
-  initialize()
+    if (data.cmd == 'updateAliases') {
+      updateAliases(data.aliases)
+    } else {
+      updateTerminal(data)
+    }
+  })
 })

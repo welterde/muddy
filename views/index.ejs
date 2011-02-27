@@ -18,8 +18,12 @@
         <h2>Aliases</h2>
 
         <ul>
-          <li><strong>q</strong> to quaff potion</li>
-          <li><strong>home</strong> to rub homing stone</li>
+          <% for (alias in aliases) { %>
+            <li>
+              type <strong><%= alias %></strong>
+              to <strong><%= aliases[alias] %></strong>
+            </li>
+          <% } %>
         </ul>
       </div>
 
