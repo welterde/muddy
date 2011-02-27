@@ -6,14 +6,7 @@ var lockScroll = function() {
 
 var sendCommand = function(command) {
   socket.send(command)
-
   updateSelf(command)
-
-  lockScroll()
-}
-
-var updateSelf = function(command) {
-  $('#output pre').append("<span class='self'>> " + command + "</span>\n")
 }
 
 var updateAliases = function(aliases) {
@@ -42,12 +35,17 @@ var updateTriggers = function(triggers) {
   }
 }
 
-var updateTerminal = function(data) {
-  $('#output pre').append(data)
-
+var updateSelf = function(command) {
+  $('#output').append("<span class='self'>> " + command + "</span>\n")
+  
   lockScroll()
 }
 
+var updateTerminal = function(data) {
+  $('#output').append(data)
+
+  lockScroll()
+}
 
 $(function() {
   socket = new io.Socket('localhost', { port: 6660 })
@@ -56,9 +54,20 @@ $(function() {
   socket.on('connect', function() {
     $('input').focus()
 
+   
+    $('#client').click(function() {
+      $('input').focus()
+    })
+
     $('input').keyup(function(event) {
       if (event.keyCode == 13) {
-        sendCommand($('input').val())
+        var command = $('input').val()
+
+        if (command == ';clear') {
+          $('#output').empty()
+        } else {
+          sendCommand(command)
+        }
         
         $('input').val('')
       }

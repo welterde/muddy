@@ -76,84 +76,99 @@ ul {
     #container #client #output {
       overflow-x: hidden;
       overflow-y: scroll;
+      font-family: DroidSansMono;
+      line-height: 14px;
+      white-space: pre-wrap;
+      color: #dddddd;
       width: 580px;
       height: 400px;
       background: #1b1b1b;
     }
 
-      #container #client #output pre {
-        margin: 0;
-        padding: 0;
-        font-family: DroidSansMono;
-        color: #dddddd;
-      }
-
-        #container #client #output pre span.self {
-          color: #5d5d5d;
-        }
-
-        #container #client #output pre span.black {
-          color: #4a4a4a;
-        }
-
-        #container #client #output pre span.black-bg {
-          background: #000000;
-        }
-
-        #container #client #output pre span.white {
-          color: #ffffff;
-        }
-        
-        #container #client #output pre span.red {
-          color: #d08356;
-        }
-
-        #container #client #output pre span.green {
-          color: #a2a96f;
-        }
-
-        #container #client #output pre span.yellow {
-          color: #e3d96f;
-        }
-
-        #container #client #output pre span.blue {
-          color: #8a9597;
-        }
-
-        #container #client #output pre span.magenta {
-          color: #be96b3;
-        }
-
-        #container #client #output pre span.cyan {
-          color: #74dad9;
-        }
-
-        #container #client #output pre span.bold {
+        #container #client #output span.bold {
           font-weight: bold;
         }
 
-        #container #client #output pre span.italic {
-          font-style: italic;
-        }
-
-        #container #client #output pre span.underline {
+        #container #client #output span.underline {
           text-decoration: underline;
         }
 
-        #container #client #output pre span.no-bold {
+        #container #client #output span.normal {
+          color: #dddddd;
           font-weight: normal;
-        }
-
-        #container #client #output pre span.no-italic {
-          font-style: normal;
-        }
-
-        #container #client #output pre span.no-underline {
           text-decoration: none;
         }
 
+        #container #client #output span.self {
+          color: #5d5d5d;
+        }
+
+        #container #client #output span.black {
+          color: #4a4a4a;
+        }
+
+        #container #client #output span.red {
+          color: #d08356;
+        }
+
+        #container #client #output span.green {
+          color: #a2a96f;
+        }
+
+        #container #client #output span.yellow {
+          color: #e3d96f;
+        }
+
+        #container #client #output span.blue {
+          color: #8a9597;
+        }
+
+        #container #client #output span.magenta {
+          color: #be96b3;
+        }
+
+        #container #client #output span.cyan {
+          color: #74dad9;
+        }
+
+        #container #client #output span.white {
+          color: #ffffff;
+        }
+
+        #container #client #output span.black-bg {
+          background: #4a4a4a;
+        }
+
+        #container #client #output span.red-bg {
+          background: #d08356;
+        }
+
+        #container #client #output span.green-bg {
+          background: #a2a96f;
+        }
+
+        #container #client #output span.yellow-bg {
+          background: #e3d96f;
+        }
+
+        #container #client #output span.blue-bg {
+          background: #8a9597;
+        }
+
+        #container #client #output span.magenta-bg {
+          background: #be96b3;
+        }
+
+        #container #client #output span.cyan-bg {
+          background: #74dad9;
+        }
+
+        #container #client #output span.white-bg {
+          background: #ffffff;
+        }
+
     #container #client input {
-      margin: 5px 0 0 0;
+      margin: 10px 0 0 0;
       padding: 0;
       width: 580px;
       font-family: DroidSansMono;
