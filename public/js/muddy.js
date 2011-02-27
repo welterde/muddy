@@ -41,7 +41,6 @@ var sendCommand = function(command) {
 }
 
 var updateAliases = function(aliases) {
-  console.log('yay')
   $('#aliases ul').empty()
 
   for (alias in aliases) {
@@ -50,6 +49,19 @@ var updateAliases = function(aliases) {
 
     $('#aliases ul').append(
       '<li>type <strong>' + key + '</strong> to <strong>' + value + '</strong></li>'
+    )
+  }
+}
+
+var updateTriggers = function(triggers) {
+  $('#triggers ul').empty()
+
+  for (trigger in triggers) {
+    var key   = trigger
+      , value = triggers[trigger]
+
+    $('#triggers ul').append(
+      '<li>when <strong>' + key + '</strong> then <strong>' + value + '</strong></li>'
     )
   }
 }
@@ -79,10 +91,10 @@ $(function() {
   socket.connect()
 
   socket.on('message', function(data) {
-    console.log(data)
-
     if (data.cmd == 'updateAliases') {
       updateAliases(data.aliases)
+    } else if (data.cmd == 'updateTriggers') {
+      updateTriggers(data.triggers)
     } else {
       updateTerminal(data)
     }

@@ -9,7 +9,7 @@ var config = yaml.eval(fs.readFileSync('config/config.yml', 'utf8'))
   , socket = io.listen(app)
 
 var alias   = require('./lib/alias')
-  , Trigger = require('./lib/trigger')
+  , trigger = require('./lib/trigger')
 
 app.configure(function() {
   app.use(express.staticProvider(__dirname + '/public'))
@@ -18,19 +18,19 @@ app.configure(function() {
 app.get('/', function(req, res) {
   res.render('index.ejs', {
     layout: false,
-    locals: { 'aliases': alias.list() }
+    locals: { 'aliases':  alias.list()
+            , 'triggers': trigger.list() }
   })
 })
 
 app.listen(6660)
 
 socket.on('connection', function(client) {
-  var mud     = net.createConnection(config.port, config.host)
-    , trigger = new Trigger(mud, client)
+  var mud = net.createConnection(config.port, config.host)
   
   mud.setEncoding('ascii')
   mud.addListener('data', function(data) {
-    trigger.scan(data)
+    client.send(data)
   })
 
   client.on('message', function(data) {
@@ -49,11 +49,19 @@ socket.on('connection', function(client) {
         client.send(response) 
       })
     } else if (data.match(/^;trigger add/i)) {
-      trigger.create(data)
-    } else if (data.match(/^;trigger ls/i)) {
-      trigger.show()
+      trigger.create(data, function() {
+        var response = { 'cmd': 'updateTriggers'
+                       , 'triggers': trigger.list() }
+
+        client.send(response) 
+      })
     } else if (data.match(/^;trigger rm/i)) {
-      trigger.remove(data)
+      trigger.remove(data, function() {
+        var response = { 'cmd': 'updateTriggers'
+                       , 'triggers': trigger.list() }
+
+        client.send(response) 
+      })
     } else {
       mud.write(alias.format(data))
     }

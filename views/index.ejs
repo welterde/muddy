@@ -39,7 +39,12 @@
         <h2>Triggers</h2>
 
         <ul>
-          <li>when <strong>shit on</strong> then <strong>vomit</strong></li>
+          <% for (trigger in triggers) { %>
+            <li>
+              when <strong><%= trigger %></strong>
+              then <strong><%= triggers[trigger] %></strong>
+            </li>
+          <% } %>
         </ul>
       </div>
     </div>
