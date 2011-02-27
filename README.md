@@ -16,6 +16,8 @@ so if you notice anything wrong in a different MUD let me know via
 ## TODO
 
 - Clean up shitty ASCII → HTML function
+- Error checking
+- Tests
 
 ## Installation & Usage
 
