@@ -71,28 +71,27 @@ var updateTriggers = function(triggers) {
 }
 
 var updateTerminal = function(data) {
-  if (data.type == 'trigger') {
-    $('#output pre').append("<span class='self'>> " + data.data + "</span>\n")
-  } else {
-    $('#output pre').append(format(data))
-  }
+  $('#output pre').append(format(data))
 
   lockScroll()
 }
 
 
 $(function() {
-  $('input').focus()
-  $('input').keyup(function(event) {
-    if (event.keyCode == 13) {
-      sendCommand($('input').val())
-      
-      $('input').val('')
-    }
-  })
-
   socket = new io.Socket('localhost', { port: 6660 })
   socket.connect()
+
+  socket.on('connect', function() {
+    $('input').focus()
+
+    $('input').keyup(function(event) {
+      if (event.keyCode == 13) {
+        sendCommand($('input').val())
+        
+        $('input').val('')
+      }
+    })
+  })
 
   socket.on('message', function(data) {
     if (data.cmd == 'updateAliases') {
