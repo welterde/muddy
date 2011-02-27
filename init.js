@@ -36,8 +36,6 @@ socket.on('connection', function(client) {
 
     client.send(formatted)
 
-    var commands = trigger.scan(data)
-
     if (commands) {
       for (var i = 0; i < commands.length; i++) {
         var response = { 'cmd':     'updateSelf'
