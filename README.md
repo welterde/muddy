@@ -6,12 +6,14 @@ This has only been tested with [Aardwolf](http://aardwolf.com),
 so if you notice anything wrong in a different MUD let me know via
 [Issues](http://github.com/dannytatom/muddy/issues).
 
-[Need a screenshot?](http://cl.ly/1E3s0o2m1y1G0G0N280K)
+![Fuck yeah!](http://f.cl.ly/items/2c3P0H1z1n472N0N1b21/Screen%20shot%202011-02-27%20at%204.47.03%20PM.png)
 
 ## Features
 
 - Aliases
 - Triggers
+- Content types are organized via tabs
+  - Currently only World & Tells
 
 ## TODO
 
