@@ -37,7 +37,7 @@ var updateTriggers = function(triggers) {
 }
 
 var updateSelf = function(command) {
-  $('#world').append("<span class='self'>> " + command + "</span>\n")
+  $('#world').append("<span class='self'>> " + command + "</span>\r\n")
   
   lockScroll()
 }
@@ -45,11 +45,25 @@ var updateSelf = function(command) {
 var updateWorld = function(data) {
   $('#world').append(data)
 
+  if ($('#world').is(':hidden')) {
+    var span  = $('#tabs ul li a.world span')
+      , count = parseInt(span.text() || 0)
+
+    span.text(count += 1)
+  }
+
   lockScroll()
 }
 
 var updateTells = function(data) {
   $('#tells').append(data)
+
+  if ($('#tells').is(':hidden')) {
+    var span  = $('#tabs ul li a.tells span')
+      , count = parseInt(span.text() || 0)
+
+    span.text(count += 1)
+  }
 
   lockScroll()
 }
@@ -57,6 +71,7 @@ var updateTells = function(data) {
 var switchTabs = function(tab) {
   $('#tabs ul li a').removeClass('selected')
   $('#tabs ul li a.' + tab).addClass('selected')
+  $('#tabs ul li a.' + tab + ' span').text('')
 
   $('#client .output').hide()
   $('#client .output#' + tab).show()
@@ -71,6 +86,7 @@ $(function() {
   socket.on('connect', function() {
     $('input').focus()
 
+    $('#client').click(function() { $('input').focus()  })
     $('a.tells').click(function() { switchTabs('tells') })
     $('a.world').click(function() { switchTabs('world') })
 
