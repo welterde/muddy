@@ -6,7 +6,7 @@ This has only been tested with [Aardwolf](http://aardwolf.com),
 so if you notice anything wrong in a different MUD let me know via
 [Issues](http://github.com/dannytatom/muddy/issues).
 
-[Need a screenshot?](http://cl.ly/190d0s06011R1R1W083H)
+[Need a screenshot?](http://cl.ly/1E3s0o2m1y1G0G0N280K)
 
 ## Features
 
