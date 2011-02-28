@@ -33,8 +33,18 @@ socket.on('connection', function(client) {
   mud.addListener('data', function(data) {
     var commands  = trigger.scan(data)
       , formatted = formatter.go(data)
+      , lines     = formatted.split('\n')
 
     client.send(formatted)
+    
+    for (var i = 0; i < lines.length; i++) {
+      if (lines[i].match(/ tells you | asks you |You tell |You ask /)) {
+        var response = { 'cmd':     'updateTells'
+                       , 'message': lines[i] + '\n' }
+
+        client.send(response)
+      }
+    }
 
     if (commands) {
       for (var i = 0; i < commands.length; i++) {

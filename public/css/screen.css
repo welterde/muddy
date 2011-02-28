@@ -100,7 +100,7 @@ ul {
           color: #999999;
         }
 
-    #container #client #output {
+    #container #client .output {
       overflow-x: hidden;
       overflow-y: scroll;
       font-family: DroidSansMono;
@@ -112,87 +112,91 @@ ul {
       background: #1b1b1b;
     }
 
-        #container #client #output span.bold {
+        #container #client .output span.bold {
           font-weight: bold;
         }
 
-        #container #client #output span.underline {
+        #container #client .output span.underline {
           text-decoration: underline;
         }
 
-        #container #client #output span.normal {
+        #container #client .output span.normal {
           color: #dddddd;
           font-weight: normal;
           text-decoration: none;
         }
 
-        #container #client #output span.self {
+        #container #client .output span.self {
           color: #5d5d5d;
         }
 
-        #container #client #output span.black {
+        #container #client .output span.black {
           color: #4a4a4a;
         }
 
-        #container #client #output span.red {
+        #container #client .output span.red {
           color: #d08356;
         }
 
-        #container #client #output span.green {
+        #container #client .output span.green {
           color: #a2a96f;
         }
 
-        #container #client #output span.yellow {
+        #container #client .output span.yellow {
           color: #e3d96f;
         }
 
-        #container #client #output span.blue {
+        #container #client .output span.blue {
           color: #8a9597;
         }
 
-        #container #client #output span.magenta {
+        #container #client .output span.magenta {
           color: #be96b3;
         }
 
-        #container #client #output span.cyan {
+        #container #client .output span.cyan {
           color: #74dad9;
         }
 
-        #container #client #output span.white {
+        #container #client .output span.white {
           color: #ffffff;
         }
 
-        #container #client #output span.black-bg {
+        #container #client .output span.black-bg {
           background: #4a4a4a;
         }
 
-        #container #client #output span.red-bg {
+        #container #client .output span.red-bg {
           background: #d08356;
         }
 
-        #container #client #output span.green-bg {
+        #container #client .output span.green-bg {
           background: #a2a96f;
         }
 
-        #container #client #output span.yellow-bg {
+        #container #client .output span.yellow-bg {
           background: #e3d96f;
         }
 
-        #container #client #output span.blue-bg {
+        #container #client .output span.blue-bg {
           background: #8a9597;
         }
 
-        #container #client #output span.magenta-bg {
+        #container #client .output span.magenta-bg {
           background: #be96b3;
         }
 
-        #container #client #output span.cyan-bg {
+        #container #client .output span.cyan-bg {
           background: #74dad9;
         }
 
-        #container #client #output span.white-bg {
+        #container #client .output span.white-bg {
           background: #ffffff;
         }
+
+    #container #client #tells {
+      display: none;
+    }
 
     #container #client input {
       margin: 10px 0 0 0;

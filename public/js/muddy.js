@@ -1,7 +1,8 @@
 var socket
 
 var lockScroll = function() {
-  $('#output').attr({ scrollTop: $('#output').attr('scrollHeight') })
+  $('#world').attr({ scrollTop: $('#world').attr('scrollHeight') })
+  $('#tells').attr({ scrollTop: $('#tells').attr('scrollHeight') })
 }
 
 var sendCommand = function(command) {
@@ -36,13 +37,29 @@ var updateTriggers = function(triggers) {
 }
 
 var updateSelf = function(command) {
-  $('#output').append("<span class='self'>> " + command + "</span>\n")
+  $('#world').append("<span class='self'>> " + command + "</span>\n")
   
   lockScroll()
 }
 
-var updateTerminal = function(data) {
-  $('#output').append(data)
+var updateWorld = function(data) {
+  $('#world').append(data)
+
+  lockScroll()
+}
+
+var updateTells = function(data) {
+  $('#tells').append(data)
+
+  lockScroll()
+}
+
+var switchTabs = function(tab) {
+  $('#tabs ul li a').removeClass('selected')
+  $('#tabs ul li a.' + tab).addClass('selected')
+
+  $('#client .output').hide()
+  $('#client .output#' + tab).show()
 
   lockScroll()
 }
@@ -54,12 +71,15 @@ $(function() {
   socket.on('connect', function() {
     $('input').focus()
 
+    $('a.tells').click(function() { switchTabs('tells') })
+    $('a.world').click(function() { switchTabs('world') })
+
     $('input').keyup(function(event) {
       if (event.keyCode == 13) {
         var command = $('input').val()
 
         if (command == ';clear') {
-          $('#output').empty()
+          $('#world').empty()
         } else {
           sendCommand(command)
         }
@@ -76,8 +96,10 @@ $(function() {
       updateTriggers(data.triggers)
     } else if (data.cmd == 'updateSelf') {
       updateSelf(data.command)
+    } else if (data.cmd == 'updateTells') {
+      updateTells(data.message)
     } else {
-      updateTerminal(data)
+      updateWorld(data)
     }
   })
 })
