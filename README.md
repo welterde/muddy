@@ -25,6 +25,12 @@ so if you notice anything wrong in a different MUD let me know via
 - Tab Completion
 - World logging to plain text or HTML
 - Scripting via Javascript
+- This should eventually be set up more like an 'application',
+  in the way that the transmission web UI is
+  - Config files & such should go in ~/.muddy/
+  - Server should be started by `muddy`
+  - Package all dependencies with it so the use of npm
+    isn't necessary
 
 ## Installation & Usage
 
