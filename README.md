@@ -19,6 +19,12 @@ so if you notice anything wrong in a different MUD let me know via
 
 - Error checking
 - Tests
+- Separate profiles so you can play more than just one MUD
+  with one set of triggers & aliases
+- Command History
+- Tab Completion
+- World logging to plain text or HTML
+- Scripting via Javascript
 
 ## Installation & Usage
 
