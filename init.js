@@ -8,7 +8,8 @@ var config = yaml.eval(fs.readFileSync('config/config.yml', 'utf8'))
   , app    = express.createServer()
   , socket = io.listen(app)
 
-var alias     = require('./lib/alias')
+var settings  = require('./lib/settings')
+  , alias     = require('./lib/alias')
   , trigger   = require('./lib/trigger')
   , formatter = require('./lib/formatter')
 

@@ -1,4 +1,5 @@
 *.swp
 .DS_Store
+config/settings.json
 config/aliases.json
 config/triggers.json
