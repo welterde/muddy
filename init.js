@@ -14,7 +14,7 @@ var settings  = require('./lib/settings')
   , formatter = require('./lib/formatter')
 
 app.configure(function() {
-  app.use(express.staticProvider(__dirname + '/public'))
+  app.use(express.static(__dirname + '/public'))
 })
 
 app.get('/', function(req, res) {
