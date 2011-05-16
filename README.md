@@ -23,13 +23,11 @@ muddy requires [express](https://github.com/visionmedia/express)
 , [Socket.IO](https://github.com/LearnBoost/Socket.IO-node)
 & [js-yaml](https://github.com/visionmedia/js-yaml)
 
-    $ npm install express
-    $ npm install socket.io
-    $ npm install yaml
     $ git clone git://github.com/dannytatom/muddy.git
     $ cd muddy
-    $ vim config.js
-    $ node init.js &
+    $ npm install
+    $ vim config/config.js
+    $ node app/init.js &
     $ open http://localhost:6660
 
 ### Aliases
