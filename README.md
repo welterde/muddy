@@ -19,10 +19,6 @@ so if you notice anything wrong in a different MUD let me know via
 
 ### Installation
 
-muddy requires [express](https://github.com/visionmedia/express)
-, [Socket.IO](https://github.com/LearnBoost/Socket.IO-node)
-& [js-yaml](https://github.com/visionmedia/js-yaml)
-
     $ git clone git://github.com/dannytatom/muddy.git
     $ cd muddy
     $ npm install
