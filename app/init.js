@@ -14,6 +14,7 @@ var settings  = require('./lib/settings')
   , formatter = require('./lib/formatter')
 
 app.configure(function() {
+  app.set('views', __dirname + '/views')
   app.use(express.static(__dirname + '/public'))
 })
 
