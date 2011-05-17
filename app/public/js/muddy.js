@@ -36,6 +36,8 @@ var updateTriggers = function(triggers) {
 }
 
 var listAliases = function(aliases) {
+  systemMessage('Your Aliases:')
+
   for (alias in aliases) {
     var key   = alias
       , value = aliases[alias]
@@ -45,7 +47,9 @@ var listAliases = function(aliases) {
 }
 
 var listTriggers = function(triggers) {
-  for (trigger in triggers) {
+  systemMessage('Your Triggers:')
+  
+    for (trigger in triggers) {
     var key   = trigger
       , value = triggers[trigger]
 
