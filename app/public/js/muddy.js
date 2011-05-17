@@ -2,7 +2,6 @@ var socket
 
 var lockScroll = function() {
   $('#world').attr({ scrollTop: $('#world').attr('scrollHeight') })
-  $('#tells').attr({ scrollTop: $('#tells').attr('scrollHeight') })
 }
 
 var sendCommand = function(command) {
@@ -55,30 +54,6 @@ var updateWorld = function(data) {
   lockScroll()
 }
 
-var updateTells = function(data) {
-  $('#tells').append(data)
-
-  if ($('#tells').is(':hidden')) {
-    var span  = $('#tabs ul li a.tells span')
-      , count = parseInt(span.text() || 0)
-
-    span.text(count += 1)
-  }
-
-  lockScroll()
-}
-
-var switchTabs = function(tab) {
-  $('#tabs ul li a').removeClass('selected')
-  $('#tabs ul li a.' + tab).addClass('selected')
-  $('#tabs ul li a.' + tab + ' span').text('')
-
-  $('#client .output').hide()
-  $('#client .output#' + tab).show()
-
-  lockScroll()
-}
-
 $(function() {
   socket = new io.Socket('localhost', { port: 6660 })
   socket.connect()
@@ -87,8 +62,6 @@ $(function() {
     $('input').focus()
 
     $('#client').click(function() { $('input').focus()  })
-    $('a.tells').click(function() { switchTabs('tells') })
-    $('a.world').click(function() { switchTabs('world') })
 
     $('input').keyup(function(event) {
       if (event.keyCode == 13) {

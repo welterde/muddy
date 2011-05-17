@@ -37,15 +37,6 @@ socket.on('connection', function(client) {
 
     client.send(formatted)
     
-    for (var i = 0; i < lines.length; i++) {
-      if (lines[i].match(/ tells you | asks you |You tell |You ask /)) {
-        var response = { 'cmd':     'updateTells'
-                       , 'message': lines[i] + '\r\n' }
-
-        client.send(response)
-      }
-    }
-
     if (commands) {
       for (var i = 0; i < commands.length; i++) {
         var response = { 'cmd':     'updateSelf'

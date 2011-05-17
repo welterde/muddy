@@ -12,8 +12,6 @@ so if you notice anything wrong in a different MUD let me know via
 
 - Aliases
 - Triggers
-- Content types are organized via tabs
-  - Currently only World & Tells
 
 ## Installation & Usage
 

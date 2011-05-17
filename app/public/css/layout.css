@@ -31,10 +31,6 @@ ul {
   width: 960px;
 }
 
-  #container #aliases {
-    text-align: right;
-  }
-
   #container #aliases,
   #container #triggers {
     float: left;
@@ -62,6 +58,10 @@ ul {
         text-shadow: 1px 1px 1px #1b1b1b;
       }
 
+  #container #aliases {
+    text-align: right;
+  }
+
   #container #client {
     float: left;
     padding: 10px;
@@ -73,87 +73,50 @@ ul {
     -webkit-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.50);
   }
 
-    #container #client #tabs {
-      margin: 0 0 15px 0;
-      padding: 1px 0 10px 0;
-      border-bottom: 1px solid #272727;
+    #container #client .output {
+      overflow-x: hidden;
+      overflow-y: scroll;
+      font-family: DroidSansMono;
+      line-height: 14px;
+      white-space: pre-wrap;
+      color: #dddddd;
+      width: 580px;
+      height: 450px;
+      background: #1b1b1b;
     }
 
-      #container #client #tabs ul li {
-        display: inline;
-        margin: 0 5px 0 0;
+      #container #client .output::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+        -webkit-border-radius: 1ex
       }
 
-        #container #client #tabs ul li a:link,
-        #container #client #tabs ul li a:visited {
-          padding: 3px 5px;
-          text-decoration: none;
-          color: #575757;
-          background: #111111;
-          border-radius: 3px;
-          -moz-border-radius: 3px;
-          -webkit-border-radius: 3px;
-        }
+      #container #client .output::-webkit-scrollbar-thumb {
+        width: 5px;
+        height: 5px;
+        -webkit-border-radius: 1ex;
+      }
 
-        #container #client #tabs ul li a:hover,
-        #container #client #tabs ul li a.selected {
-          color: #999999;
-        }
+      #container #client .output::-webkit-scrollbar-button:start:decrement,
+      #container #client .output::-webkit-scrollbar-button:end:increment {
+        display: block;
+        height: 0;
+      }
 
-        #container #client #tabs ul li a span {
-          padding: 0 0 0 5px;
-          font-size: 8px;
-          color: #74dad9;
-        }
+      #container #client .output::-webkit-scrollbar-thumb:vertical,
+      #container #client .output::-webkit-scrollbar-thumb:horizontal {
+        height: 3px;
+        width: 3px;
+        margin: 3px;
+      }
 
-        #container #client .output {
-          overflow-x: hidden;
-          overflow-y: scroll;
-          font-family: DroidSansMono;
-          line-height: 14px;
-          white-space: pre-wrap;
-          color: #dddddd;
-          width: 580px;
-          height: 450px;
-          background: #1b1b1b;
-        }
+      #container #client .output::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.25);
+      }
 
-          #container #client .output::-webkit-scrollbar {
-            width: 5px;
-            height: 5px;
-            -webkit-border-radius: 1ex
-          }
-
-          #container #client .output::-webkit-scrollbar-thumb {
-            width: 5px;
-            height: 5px;
-            -webkit-border-radius: 1ex;
-          }
-
-          #container #client .output::-webkit-scrollbar-button:start:decrement,
-          #container #client .output::-webkit-scrollbar-button:end:increment {
-            display: block;
-            height: 0;
-          }
-
-          #container #client .output::-webkit-scrollbar-thumb:vertical,
-          #container #client .output::-webkit-scrollbar-thumb:horizontal {
-            height: 3px;
-            width: 3px;
-            margin: 3px;
-          }
-
-          #container #client .output::-webkit-scrollbar-thumb {
-            background-color: rgba(255, 255, 255, 0.25);
-          }
-
-          #container #client .output::-webkit-scrollbar {
-            background-color: #272727;
-          }
-
-    #container #client #tells {
-      display: none;
-    }
+      #container #client .output::-webkit-scrollbar {
+        background-color: #272727;
+      }
 
     #container #client input {
       margin: 10px 0 0 0;
