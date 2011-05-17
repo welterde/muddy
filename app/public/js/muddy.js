@@ -35,6 +35,30 @@ var updateTriggers = function(triggers) {
   }
 }
 
+var listAliases = function(aliases) {
+  for (alias in aliases) {
+    var key   = alias
+      , value = aliases[alias]
+
+    systemMessage('type ' + key + ' to ' + value)
+  }
+}
+
+var listTriggers = function(triggers) {
+  for (trigger in triggers) {
+    var key   = trigger
+      , value = triggers[trigger]
+
+    systemMessage('type ' + key + ' to ' + value)
+  }
+}
+
+var systemMessage = function(message) {
+  $('#world').append("<span class='yellow'># " + message + "</span>\r\n")
+
+  lockScroll()
+}
+
 var updateSelf = function(command) {
   $('#world').append("<span class='self'>> " + command + "</span>\r\n")
   
@@ -84,8 +108,12 @@ $(function() {
 
     if (command == 'updateAliases') {
       updateAliases(data)
+    } else if (command == 'listAliases') {
+      listAliases(data)
     } else if (command == 'updateTriggers') {
       updateTriggers(data)
+    } else if (command == 'listTriggers') {
+      listTriggers(data)
     } else if (command == 'updateSelf') {
       updateSelf(data)
     } else if (command == 'updateWorld') {

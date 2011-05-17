@@ -54,6 +54,8 @@ socket.on('connection', function(client) {
       alias.create(data, function() {
         client.send(createResponse('updateAliases', alias.list()))
       })
+    } else if (data.match(/^;alias ls/i)) {
+      client.send(createResponse('listAliases', alias.list()))
     } else if (data.match(/^;alias rm/i)) {
       alias.remove(data, function() {
         client.send(createResponse('updateAliases', alias.list()))
@@ -62,6 +64,8 @@ socket.on('connection', function(client) {
       trigger.create(data, function() {
         client.send(createResponse('updateTriggers', trigger.list()))
       })
+    } else if (data.match(/^;trigger ls/i)) {
+      client.send(createResponse('listTriggers', trigger.list()))
     } else if (data.match(/^;trigger rm/i)) {
       trigger.remove(data, function() {
         client.send(createResponse('updateTriggers', trigger.list()))

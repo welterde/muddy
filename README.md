@@ -28,11 +28,13 @@ so if you notice anything wrong in a different MUD let me know via
 
     ;alias add {go home} {invoke stone} # Add an alias
     ;alias rm {go home}                 # Remove an alias
+    ;alias ls                           # List aliases
 
 ### Triggers
 
     ;trigger add {Your Selection:} {1} # Add a trigger
     ;trigger rm {Your Selection:}      # Remove a trigger
+    ;trigger ls                        # List triggers
 
 ## Copyright
 
