@@ -78,16 +78,17 @@ $(function() {
     })
   })
 
-  socket.on('message', function(data) {
-    if (data.cmd == 'updateAliases') {
-      updateAliases(data.aliases)
-    } else if (data.cmd == 'updateTriggers') {
-      updateTriggers(data.triggers)
-    } else if (data.cmd == 'updateSelf') {
-      updateSelf(data.command)
-    } else if (data.cmd == 'updateTells') {
-      updateTells(data.message)
-    } else {
+  socket.on('message', function(message) {
+    var command = message.command
+      , data    = message.data
+
+    if (command == 'updateAliases') {
+      updateAliases(data)
+    } else if (command == 'updateTriggers') {
+      updateTriggers(data)
+    } else if (command == 'updateSelf') {
+      updateSelf(data)
+    } else if (command == 'updateWorld') {
       updateWorld(data)
     }
   })
