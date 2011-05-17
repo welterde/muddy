@@ -106,17 +106,50 @@ ul {
           color: #74dad9;
         }
 
-    #container #client .output {
-      overflow-x: hidden;
-      overflow-y: scroll;
-      font-family: DroidSansMono;
-      line-height: 14px;
-      white-space: pre-wrap;
-      color: #dddddd;
-      width: 580px;
-      height: 450px;
-      background: #1b1b1b;
-    }
+        #container #client .output {
+          overflow-x: hidden;
+          overflow-y: scroll;
+          font-family: DroidSansMono;
+          line-height: 14px;
+          white-space: pre-wrap;
+          color: #dddddd;
+          width: 580px;
+          height: 450px;
+          background: #1b1b1b;
+        }
+
+          #container #client .output::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+            -webkit-border-radius: 1ex
+          }
+
+          #container #client .output::-webkit-scrollbar-thumb {
+            width: 5px;
+            height: 5px;
+            -webkit-border-radius: 1ex;
+          }
+
+          #container #client .output::-webkit-scrollbar-button:start:decrement,
+          #container #client .output::-webkit-scrollbar-button:end:increment {
+            display: block;
+            height: 0;
+          }
+
+          #container #client .output::-webkit-scrollbar-thumb:vertical,
+          #container #client .output::-webkit-scrollbar-thumb:horizontal {
+            height: 3px;
+            width: 3px;
+            margin: 3px;
+          }
+
+          #container #client .output::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.25);
+          }
+
+          #container #client .output::-webkit-scrollbar {
+            background-color: #272727;
+          }
 
         #container #client .output span.bold {
           font-weight: bold;
