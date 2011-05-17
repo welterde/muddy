@@ -22,7 +22,7 @@ so if you notice anything wrong in a different MUD let me know via
     $ git clone git://github.com/dannytatom/muddy.git
     $ cd muddy
     $ npm install
-    $ vim config/config.js
+    $ vim config/config.json
     $ node app/init.js &
     $ open http://localhost:6660
 

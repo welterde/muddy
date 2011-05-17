@@ -1,17 +1,15 @@
 var fs      = require('fs')
   , net     = require('net')
-  , yaml    = require('yaml')
   , express = require('express')
   , io      = require('socket.io')
 
-var config = yaml.eval(fs.readFileSync('config/config.yml', 'utf8'))
-  , app    = express.createServer()
-  , socket = io.listen(app)
-
-var settings  = require('./lib/settings')
-  , alias     = require('./lib/alias')
+var alias     = require('./lib/alias')
   , trigger   = require('./lib/trigger')
   , formatter = require('./lib/formatter')
+
+var config = JSON.parse(fs.readFileSync('config/config.json', 'utf8'))
+  , app    = express.createServer()
+  , socket = io.listen(app)
 
 app.configure(function() {
   app.set('views', __dirname + '/views')
