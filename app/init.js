@@ -21,7 +21,10 @@ app.configure(function() {
 })
 
 app.get('/', function(req, res) {
-  res.render('index.ejs', { layout: false })
+  res.render('index.ejs', {
+    layout: false,
+    locals: { mud: config.name }
+  })
 })
 
 app.listen(6660)

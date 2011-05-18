@@ -1,9 +1,9 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  font-size: 10px;
-  color: #575757;
+  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #909090;
   background: #272727;
   background-image: url('/img/background.png');
 }
@@ -13,20 +13,45 @@ body {
   src: url('/fnt/DroidSansMono.ttf');
 }
 
-h1, h2, h3, h4 {
+h1, h2, h3, h4, p, ul, li {
   margin: 0;
   padding: 0;
   font-weight: normal;
 }
 
 ul {
-  margin: 0;
-  padding: 0;
   list-style-type: none;
 }
 
+#header {
+  padding: 15px;
+  height: 20px;
+  background: url('/img/header.png') repeat-x;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.30);
+  -moz-box-shadow: 0 0 15px rgba(0, 0, 0, 0.30);
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.30);
+}
+
+  #header h1 {
+    float: left;
+    margin: 2px 15px 0 0;
+    width: 75px;
+    height: 25px;
+    background: url('/img/logo.png') repeat-x;
+    text-indent: -5000em;
+  }
+
+  #header p {
+    margin: 5px 0 0 0;
+    float: left;
+  }
+
+    #header p span {
+      color: #ffffff;
+    }
+
 #client {
-  margin: 25px auto;
+  margin: 25px auto 10px auto;
   padding: 10px;
   width: 585px;
   background: #1b1b1b;
@@ -40,6 +65,7 @@ ul {
     overflow-x: hidden;
     overflow-y: scroll;
     font-family: DroidSansMono;
+    font-size: 10px;
     line-height: 14px;
     white-space: pre-wrap;
     color: #dddddd;
