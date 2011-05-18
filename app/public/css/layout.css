@@ -25,110 +25,73 @@ ul {
   list-style-type: none;
 }
 
-#container {
-  overflow: hidden;
+#client {
   margin: 25px auto;
-  width: 960px;
+  padding: 10px;
+  width: 585px;
+  background: #1b1b1b;
+  border: 1px solid #2b2b2b;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.50);
+  -moz-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.50);
+  -webkit-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.50);
 }
 
-  #container #aliases,
-  #container #triggers {
-    float: left;
-    padding: 10px;
-    width: 155px;
-  }
-
-    #container #aliases h2,
-    #container #triggers h2 {
-      margin: 0 0 5px 0;
-      padding: 0 0 5px 0;
-      font-size: 16px;
-      text-shadow: 1px 1px 1px #1b1b1b;
-      border-bottom: 1px solid #303030;
-    }
-
-    #container #aliases ul li,
-    #container #triggers ul li {
-      margin: 0 0 5px 0;
-    }
-
-      #container #aliases ul li strong,
-      #container #triggers ul li strong {
-        color: #dddddd;
-        text-shadow: 1px 1px 1px #1b1b1b;
-      }
-
-  #container #aliases {
-    text-align: right;
-  }
-
-  #container #client {
-    float: left;
-    padding: 10px;
-    width: 585px;
+  #client .output {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: DroidSansMono;
+    line-height: 14px;
+    white-space: pre-wrap;
+    color: #dddddd;
+    width: 580px;
+    height: 450px;
     background: #1b1b1b;
-    border: 1px solid #2b2b2b;
-    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.50);
-    -moz-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.50);
-    -webkit-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.50);
   }
 
-    #container #client .output {
-      overflow-x: hidden;
-      overflow-y: scroll;
-      font-family: DroidSansMono;
-      line-height: 14px;
-      white-space: pre-wrap;
-      color: #dddddd;
-      width: 580px;
-      height: 450px;
-      background: #1b1b1b;
+    #client .output::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+      -webkit-border-radius: 1ex
     }
 
-      #container #client .output::-webkit-scrollbar {
-        width: 5px;
-        height: 5px;
-        -webkit-border-radius: 1ex
-      }
-
-      #container #client .output::-webkit-scrollbar-thumb {
-        width: 5px;
-        height: 5px;
-        -webkit-border-radius: 1ex;
-      }
-
-      #container #client .output::-webkit-scrollbar-button:start:decrement,
-      #container #client .output::-webkit-scrollbar-button:end:increment {
-        display: block;
-        height: 0;
-      }
-
-      #container #client .output::-webkit-scrollbar-thumb:vertical,
-      #container #client .output::-webkit-scrollbar-thumb:horizontal {
-        height: 3px;
-        width: 3px;
-        margin: 3px;
-      }
-
-      #container #client .output::-webkit-scrollbar-thumb {
-        background-color: rgba(255, 255, 255, 0.25);
-      }
-
-      #container #client .output::-webkit-scrollbar {
-        background-color: #272727;
-      }
-
-    #container #client input {
-      margin: 10px 0 0 0;
-      padding: 0;
-      width: 580px;
-      font-family: DroidSansMono;
-      font-size: 10px;
-      color: #dddddd;
-      background: #1b1b1b;
-      border: 0;
+    #client .output::-webkit-scrollbar-thumb {
+      width: 5px;
+      height: 5px;
+      -webkit-border-radius: 1ex;
     }
 
-      #container #client input:focus {
-        outline: none;
-      }
+    #client .output::-webkit-scrollbar-button:start:decrement,
+    #client .output::-webkit-scrollbar-button:end:increment {
+      display: block;
+      height: 0;
+    }
+
+    #client .output::-webkit-scrollbar-thumb:vertical,
+    #client .output::-webkit-scrollbar-thumb:horizontal {
+      height: 3px;
+      width: 3px;
+      margin: 3px;
+    }
+
+    #client .output::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.25);
+    }
+
+    #client .output::-webkit-scrollbar {
+      background-color: #272727;
+    }
+
+  #client input {
+    margin: 10px 0 0 0;
+    padding: 0;
+    width: 580px;
+    font-family: DroidSansMono;
+    font-size: 10px;
+    color: #dddddd;
+    background: #1b1b1b;
+    border: 0;
+  }
+
+    #client input:focus {
+      outline: none;
+    }

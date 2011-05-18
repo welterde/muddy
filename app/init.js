@@ -21,11 +21,7 @@ app.configure(function() {
 })
 
 app.get('/', function(req, res) {
-  res.render('index.ejs', {
-    layout: false,
-    locals: { 'aliases':  alias.list()
-            , 'triggers': trigger.list() }
-  })
+  res.render('index.ejs', { layout: false })
 })
 
 app.listen(6660)

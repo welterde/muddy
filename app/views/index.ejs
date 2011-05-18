@@ -16,38 +16,10 @@
   </head>
 
   <body>
-    <div id='container'>
-      <div id='aliases'>
-        <h2>Aliases</h2>
+    <div id='client'>
+      <div id='world' class='output'></div>
 
-        <ul>
-          <% for (alias in aliases) { %>
-            <li>
-              type <strong><%= alias %></strong>
-              to <strong><%= aliases[alias] %></strong>
-            </li>
-          <% } %>
-        </ul>
-      </div>
-
-      <div id='client'>
-        <div id='world' class='output'></div>
-
-        <input type='text' />
-      </div>
-      
-      <div id='triggers'>
-        <h2>Triggers</h2>
-
-        <ul>
-          <% for (trigger in triggers) { %>
-            <li>
-              when <strong><%= trigger %></strong>
-              then <strong><%= triggers[trigger] %></strong>
-            </li>
-          <% } %>
-        </ul>
-      </div>
+      <input type='text' />
     </div>
   </body>
 </html>
