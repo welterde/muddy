@@ -51,25 +51,17 @@ socket.on('connection', function(client) {
 
   client.on('message', function(data) {
     if (data.match(/^;alias add/i)) {
-      alias.create(data, function() {
-        client.send(createResponse('updateAliases', alias.list()))
-      })
+      alias.create(data)
     } else if (data.match(/^;alias ls/i)) {
       client.send(createResponse('listAliases', alias.list()))
     } else if (data.match(/^;alias rm/i)) {
-      alias.remove(data, function() {
-        client.send(createResponse('updateAliases', alias.list()))
-      })
+      alias.remove(data)
     } else if (data.match(/^;trigger add/i)) {
-      trigger.create(data, function() {
-        client.send(createResponse('updateTriggers', trigger.list()))
-      })
+      trigger.create(data)
     } else if (data.match(/^;trigger ls/i)) {
       client.send(createResponse('listTriggers', trigger.list()))
     } else if (data.match(/^;trigger rm/i)) {
-      trigger.remove(data, function() {
-        client.send(createResponse('updateTriggers', trigger.list()))
-      })
+      trigger.remove(data)
     } else {
       mud.write(alias.format(data))
     }

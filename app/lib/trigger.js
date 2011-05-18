@@ -24,12 +24,7 @@ exports.create = function(trigger, callback) {
 
   triggers[key] = value
 
-  fs.writeFile(file, JSON.stringify(triggers), function(err) {
-    if (err) {
-    } else {
-      callback()
-    }
-  })
+  fs.writeFile(file, JSON.stringify(triggers), function(err) {})
 }
 
 exports.remove = function(trigger, callback) {
@@ -44,12 +39,7 @@ exports.remove = function(trigger, callback) {
     }
   }
 
-  fs.writeFile(file, JSON.stringify(triggers), function(err) {
-    if (err) {
-    } else {
-      callback()
-    }
-  })
+  fs.writeFile(file, JSON.stringify(triggers), function(err) {})
 }
 
 exports.scan = function(data) {

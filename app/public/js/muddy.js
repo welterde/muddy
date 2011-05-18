@@ -63,12 +63,8 @@ $(function() {
     var command = message.command
       , data    = message.data
 
-    if (command == 'updateAliases') {
-      updateAliases(data)
-    } else if (command == 'listAliases') {
+    if (command == 'listAliases') {
       world.listAliases(data)
-    } else if (command == 'updateTriggers') {
-      updateTriggers(data)
     } else if (command == 'listTriggers') {
       world.listTriggers(data)
     } else if (command == 'updateSelf') {

@@ -24,12 +24,7 @@ exports.create = function(alias, callback) {
 
   aliases[key] = value
 
-  fs.writeFile(file, JSON.stringify(aliases), function(err) {
-    if (err) {
-    } else {
-      callback()
-    }
-  })
+  fs.writeFile(file, JSON.stringify(aliases), function(err) {})
 }
 
 exports.remove = function(alias, callback) {
@@ -44,12 +39,7 @@ exports.remove = function(alias, callback) {
     }
   }
 
-  fs.writeFile(file, JSON.stringify(aliases), function(err) {
-    if (err) {
-    } else {
-      callback()
-    }
-  })
+  fs.writeFile(file, JSON.stringify(aliases), function(err) {})
 }
 
 exports.format = function(data) {
