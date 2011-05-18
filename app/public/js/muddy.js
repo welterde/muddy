@@ -1,12 +1,5 @@
-var socket
-
 var lockScroll = function() {
   $('#world').attr({ scrollTop: $('#world').attr('scrollHeight') })
-}
-
-var sendCommand = function(command) {
-  socket.send(command)
-  updateSelf(command)
 }
 
 var updateAliases = function(aliases) {
@@ -35,28 +28,6 @@ var updateTriggers = function(triggers) {
   }
 }
 
-var listAliases = function(aliases) {
-  systemMessage('Your Aliases:')
-
-  for (alias in aliases) {
-    var key   = alias
-      , value = aliases[alias]
-
-    systemMessage('type ' + key + ' to ' + value)
-  }
-}
-
-var listTriggers = function(triggers) {
-  systemMessage('Your Triggers:')
-  
-    for (trigger in triggers) {
-    var key   = trigger
-      , value = triggers[trigger]
-
-    systemMessage('type ' + key + ' to ' + value)
-  }
-}
-
 var systemMessage = function(message) {
   $('#world').append("<span class='yellow'># " + message + "</span>\r\n")
 
@@ -69,37 +40,19 @@ var updateSelf = function(command) {
   lockScroll()
 }
 
-var updateWorld = function(data) {
-  $('#world').append(data)
-
-  if ($('#world').is(':hidden')) {
-    var span  = $('#tabs ul li a.world span')
-      , count = parseInt(span.text() || 0)
-
-    span.text(count += 1)
-  }
-
-  lockScroll()
-}
-
 $(function() {
-  socket = new io.Socket('localhost', { port: 6660 })
+  var world  = new World('#world')
+    , socket = new io.Socket('localhost', { port: 6660 })
+  
   socket.connect()
 
   socket.on('connect', function() {
     $('input').focus()
 
-    $('#client').click(function() { $('input').focus()  })
-
     $('input').keyup(function(event) {
       if (event.keyCode == 13) {
-        var command = $('input').val()
-
-        if (command == ';clear') {
-          $('#world').empty()
-        } else {
-          sendCommand(command)
-        }
+        socket.send($('input').val())
+        updateSelf($('input').val())
         
         $('input').val('')
       }
@@ -113,15 +66,15 @@ $(function() {
     if (command == 'updateAliases') {
       updateAliases(data)
     } else if (command == 'listAliases') {
-      listAliases(data)
+      world.listAliases(data)
     } else if (command == 'updateTriggers') {
       updateTriggers(data)
     } else if (command == 'listTriggers') {
-      listTriggers(data)
+      world.listTriggers(data)
     } else if (command == 'updateSelf') {
       updateSelf(data)
     } else if (command == 'updateWorld') {
-      updateWorld(data)
+      world.update(data)
     }
   })
 })
