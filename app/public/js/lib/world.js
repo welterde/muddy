@@ -18,13 +18,13 @@ World.prototype.systemMessage = function(message) {
 }
 
 World.prototype.listAliases = function(aliases) {
-  systemMessage('\r\nYour Aliases:\r\n')
+  this.systemMessage('\r\nYour Aliases:\r\n')
 
   for (alias in aliases) {
     var key   = alias
       , value = aliases[alias]
 
-    systemMessage('type `' + key + '` to `' + value + '`')
+    this.systemMessage('type `' + key + '` to `' + value + '`')
   }
 }
 
@@ -35,6 +35,6 @@ World.prototype.listTriggers = function(triggers) {
     var key   = trigger
       , value = triggers[trigger]
 
-    systemMessage('type `' + key + '` to `' + value + '`')
+    this.systemMessage('type `' + key + '` to `' + value + '`')
   }
 }
