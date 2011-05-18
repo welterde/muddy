@@ -43,7 +43,6 @@ socket.on('connection', function(client) {
     
     if (commands) {
       for (var i = 0; i < commands.length; i++) {
-        client.send(createResponse('updateSelf', commands[i]))
         mud.write(commands[i])
       }
     }
