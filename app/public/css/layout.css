@@ -66,39 +66,6 @@ ul {
     color: #dddddd;
   }
 
-    #client .output::-webkit-scrollbar {
-      width: 5px;
-      height: 5px;
-      -webkit-border-radius: 1ex
-    }
-
-    #client .output::-webkit-scrollbar-thumb {
-      width: 5px;
-      height: 5px;
-      -webkit-border-radius: 1ex;
-    }
-
-    #client .output::-webkit-scrollbar-button:start:decrement,
-    #client .output::-webkit-scrollbar-button:end:increment {
-      display: block;
-      height: 0;
-    }
-
-    #client .output::-webkit-scrollbar-thumb:vertical,
-    #client .output::-webkit-scrollbar-thumb:horizontal {
-      height: 3px;
-      width: 3px;
-      margin: 3px;
-    }
-
-    #client .output::-webkit-scrollbar-thumb {
-      background-color: rgba(255, 255, 255, 0.10);
-    }
-
-    #client .output::-webkit-scrollbar {
-      background-color: rgba(0, 0, 0, 0.10);
-    }
-
 #input {
   position: fixed;
   bottom: 0;
