@@ -4,9 +4,12 @@ var World = function(selector) {
 
 World.prototype.update = function(data) {
   $(this.selector).append(data)
-  $(this.selector).attr({
-    scrollTop: $(this.selector).attr('scrollHeight')
-  })
+  $(this.selector).attr({ scrollTop: $(this.selector).attr('scrollHeight') })
+}
+
+World.prototype.resize = function() {
+  $(this.selector).height(window.innerHeight - 115)
+  $(this.selector).attr({ scrollTop: $(this.selector).attr('scrollHeight') })
 }
 
 World.prototype.selfMesssage = function(message) {

@@ -2,6 +2,7 @@ $(function() {
   var world  = new World('#world')
     , socket = new io.Socket('localhost', { port: 6660 })
   
+  world.resize()
   socket.connect()
 
   socket.on('connect', function() {
@@ -15,6 +16,10 @@ $(function() {
         $('input').val('')
       }
     })
+
+    window.onresize = function(event) {
+      world.resize()
+    }
   })
 
   socket.on('message', function(message) {

@@ -51,27 +51,19 @@ ul {
     }
 
 #client {
-  margin: 25px auto 10px auto;
-  padding: 10px;
-  width: 585px;
-  background: #1b1b1b;
-  border: 1px solid #292929;
-  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.50);
-  -moz-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.50);
-  -webkit-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.50);
+  width: 100%;
 }
 
   #client .output {
     overflow-x: hidden;
     overflow-y: scroll;
+    padding: 10px;
+    height: 200px;
     font-family: DroidSansMono;
     font-size: 10px;
     line-height: 14px;
     white-space: pre-wrap;
     color: #dddddd;
-    width: 580px;
-    height: 450px;
-    background: #1b1b1b;
   }
 
     #client .output::-webkit-scrollbar {
@@ -100,24 +92,38 @@ ul {
     }
 
     #client .output::-webkit-scrollbar-thumb {
-      background-color: rgba(255, 255, 255, 0.25);
+      background-color: rgba(255, 255, 255, 0.10);
     }
 
     #client .output::-webkit-scrollbar {
-      background-color: #272727;
+      background-color: rgba(0, 0, 0, 0.10);
     }
 
-  #client input {
-    margin: 10px 0 0 0;
-    padding: 0;
-    width: 580px;
+#input {
+  position: fixed;
+  bottom: 0;
+  padding: 10px;
+  height: 25px;
+  width: 100%;
+  background: #1a1a1a url('/img/input.png') repeat-x;
+}
+  
+  #input input {
+    padding: 3px;
+    width: 97.5%;
     font-family: DroidSansMono;
-    font-size: 10px;
-    color: #dddddd;
-    background: #1b1b1b;
-    border: 0;
+    font-size: 12px;
+    color: #333333;
+    background: #f3f3f3;
+    border: 1px solid #ffffff;i
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.30);
+    -moz-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.30);
+    -webkit-box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.30);
   }
 
-    #client input:focus {
+    #input input:focus {
       outline: none;
     }
