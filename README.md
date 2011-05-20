@@ -6,8 +6,6 @@ This has only been tested with [Aardwolf](http://aardwolf.com),
 so if you notice anything wrong in a different MUD let me know via
 [Issues](http://github.com/dannytatom/muddy/issues).
 
-![Screenshots!](http://f.cl.ly/items/2E3l2V063W3b0q3V2N19/muddy-screenshot.png)
-
 ## Features
 
 - Aliases
