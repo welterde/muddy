@@ -21,7 +21,7 @@ World.prototype.systemMessage = function(message) {
 }
 
 World.prototype.listAliases = function(aliases) {
-  this.systemMessage('\r\nYour Aliases:\r\n')
+  this.systemMessage('Your Aliases:\r\n')
 
   for (alias in aliases) {
     var key   = alias
