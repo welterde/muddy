@@ -8,6 +8,7 @@ World.prototype.update = function(data) {
 }
 
 World.prototype.resize = function() {
+  $('#input input').width(window.innerWidth - 30)
   $(this.selector).height(window.innerHeight - 115)
   $(this.selector).attr({ scrollTop: $(this.selector).attr('scrollHeight') })
 }
