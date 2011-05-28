@@ -10,6 +10,7 @@ so if you notice anything wrong in a different MUD let me know via
 
 ## Features
 
+- Command History
 - Aliases
 - Triggers
 
