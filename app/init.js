@@ -15,6 +15,10 @@ var createResponse = function(command, data) {
   return { command: command, data: data }
 }
 
+var log = function(string) {
+  console.log('\033[36m[ muddy ]\033[0m → ' + string)
+}
+
 app.configure(function() {
   app.set('views', __dirname + '/views')
   app.use(express.static(__dirname + '/public'))
@@ -27,12 +31,12 @@ app.get('/', function(req, res) {
   })
 })
 
-app.listen(6660)
-
 socket.on('connection', function(client) {
   var mud = net.createConnection(config.port, config.host)
   mud.setEncoding('ascii')
   
+  log('Client ' + client.sessionId + ' connected to ' + config.host + ':' + config.port)
+
   mud.addListener('data', function(data) {
     var commands  = trigger.scan(data)
       , formatted = formatter.go(data)
@@ -64,3 +68,5 @@ socket.on('connection', function(client) {
     }
   })
 })
+
+app.listen(6660)
