@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang='en'>
+  <head>
+    <title><%= mud %></title>
+
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+
+    <link rel='icon' type='image/png' href='/img/icon.png' />
+
+    <link rel='stylesheet' type='text/css' media='all' href='/css/layout.css' />
+    <link rel='stylesheet' type='text/css' media='all' href='/css/colors.css' />
+
+    <script type='text/javascript' src='http://cdn.socket.io/stable/socket.io.js'></script>
+
+    <script type='text/javascript' src='/js/ext/jquery-1.4.4.min.js'></script>
+    <script type='text/javascript' src='/js/lib/world.js'></script>
+    <script type='text/javascript' src='/js/muddy.js'></script>
+  </head>
+
+  <body>
+    <div id='header'>
+      <h1>muddy</h1>
+
+      <p>Playing <span><%= mud %></span></p>
+    </div>
+
+    <div id='client'>
+      <div id='world' class='output'></div>
+    </div>
+
+    <div id='input'>
+      <input type='text' />
+    </div>
+  </body>
+</html>
