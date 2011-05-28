@@ -31,7 +31,7 @@ app.listen(6660)
 
 socket.on('connection', function(client) {
   var mud = net.createConnection(config.port, config.host)
-      mud.setEncoding('ascii')
+  mud.setEncoding('ascii')
   
   mud.addListener('data', function(data) {
     var commands  = trigger.scan(data)
