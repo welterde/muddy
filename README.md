@@ -21,7 +21,7 @@ so if you notice anything wrong in a different MUD let me know via
     $ cd muddy
     $ npm install
     $ vim config/config.json
-    $ node app/init.js &
+    $ node init.js &
     $ open http://localhost:6660
 
 ### Aliases
