@@ -36,7 +36,6 @@ socket.on('connection', function(client) {
   mud.addListener('data', function(data) {
     var commands  = trigger.scan(data)
       , formatted = formatter.go(data)
-      , lines     = formatted.split('\r\n')
 
     client.send(createResponse('updateWorld', formatted))
     
