@@ -1,8 +1,14 @@
 $(function() {
   var world  = new World('#world')
     , socket = new io.Socket('localhost', { port: 6660 })
-  
-  world.resize()
+ 
+  var resizeUI = function() {
+    $('#input input').width(window.innerWidth - 30)
+    $('.output').height(window.innerHeight - 115)
+    $('.output').attr({ scrollTop: $('.output').attr('scrollHeight') })
+  }
+
+  resizeUI()
   socket.connect()
 
   socket.on('connect', function() {
@@ -18,7 +24,7 @@ $(function() {
     })
 
     window.onresize = function(event) {
-      world.resize()
+      resizeUI()
     }
   })
 

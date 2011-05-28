@@ -7,12 +7,6 @@ World.prototype.update = function(data) {
   $(this.selector).attr({ scrollTop: $(this.selector).attr('scrollHeight') })
 }
 
-World.prototype.resize = function() {
-  $('#input input').width(window.innerWidth - 30)
-  $(this.selector).height(window.innerHeight - 115)
-  $(this.selector).attr({ scrollTop: $(this.selector).attr('scrollHeight') })
-}
-
 World.prototype.selfMesssage = function(message) {
   this.update("<span class='self'>" + message + "</span>\r\n")
 }
