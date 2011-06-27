@@ -33,7 +33,7 @@ app.get('/', function(req, res) {
 
 socket.on('connection', function(client) {
   var mud = net.createConnection(config.port, config.host)
-  mud.setEncoding('ascii')
+  mud.setEncoding('utf8')
   
   log(client.sessionId + ' connected to ' + config.host + ':' + config.port)
 
