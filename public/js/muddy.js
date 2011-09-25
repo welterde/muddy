@@ -1,6 +1,6 @@
 $(function() {
   var world   = new World('#world')
-    , socket  = new io.Socket('localhost', { port: 6660 })
+    , socket  = io.connect('http://localhost')
   
   var resizeUI = function() {
     $('#input input').width(window.innerWidth - 30)
@@ -9,14 +9,13 @@ $(function() {
   }
 
   resizeUI()
-  socket.connect()
 
   socket.on('connect', function() {
     $('input').focus()
 
     $('input').keyup(function(event) {
       if (event.keyCode == 13) {
-        socket.send($('input').val())
+        socket.emit('message', $('input').val())
         world.selfMesssage($('input').val())
         world.updateHistory($('input').val())
         

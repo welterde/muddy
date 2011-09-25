@@ -4,6 +4,6 @@
   "dependencies": {
     "ejs": "0.4.3",
     "express": "2.4.0",
-    "socket.io": "0.7.6"
+    "socket.io": "0.8.4"
   }
 }

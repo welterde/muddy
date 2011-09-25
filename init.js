@@ -1,7 +1,6 @@
 var fs      = require('fs')
   , net     = require('net')
   , express = require('express')
-  , io      = require('socket.io')
 
 var alias     = require('./lib/alias')
   , trigger   = require('./lib/trigger')
@@ -9,7 +8,7 @@ var alias     = require('./lib/alias')
 
 var config = JSON.parse(fs.readFileSync('config/config.json', 'utf8'))
   , app    = express.createServer()
-  , socket = io.listen(app)
+  , io     = require('socket.io').listen(app)
 
 var createResponse = function(command, data) {
   return { command: command, data: data }
@@ -31,17 +30,17 @@ app.get('/', function(req, res) {
   })
 })
 
-socket.on('connection', function(client) {
+io.sockets.on('connection', function(socket) {
   var mud = net.createConnection(config.port, config.host)
   mud.setEncoding('utf8')
   
-  log(client.sessionId + ' connected to ' + config.host + ':' + config.port)
+  log(socket.sessionId + ' connected to ' + config.host + ':' + config.port)
 
   mud.addListener('data', function(data) {
     var commands  = trigger.scan(data)
       , formatted = formatter.go(data)
 
-    client.send(createResponse('updateWorld', formatted))
+    socket.emit('message', createResponse('updateWorld', formatted))
     
     if (commands) {
       for (var i = 0; i < commands.length; i++) {
@@ -50,17 +49,17 @@ socket.on('connection', function(client) {
     }
   })
 
-  client.on('message', function(data) {
+  socket.on('message', function(data) {
     if (data.match(/^;alias add/i)) {
       alias.create(data)
     } else if (data.match(/^;alias ls/i)) {
-      client.send(createResponse('listAliases', alias.list()))
+      socket.send(createResponse('listAliases', alias.list()))
     } else if (data.match(/^;alias rm/i)) {
       alias.remove(data)
     } else if (data.match(/^;trigger add/i)) {
       trigger.create(data)
     } else if (data.match(/^;trigger ls/i)) {
-      client.send(createResponse('listTriggers', trigger.list()))
+      socket.send(createResponse('listTriggers', trigger.list()))
     } else if (data.match(/^;trigger rm/i)) {
       trigger.remove(data)
     } else {
